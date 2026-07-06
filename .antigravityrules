@@ -1,0 +1,7 @@
+- cara menjalankan project dengan mengakses : http://localhost:8083/pppresisi dan panel admin nya cara menjalankan project dengan mengakses : http://localhost:8083/pppresisi/admin
+- project simap ini menggunakan php 8.2, framework Laravel 12, dan Filament 5.6 untuk panel admin.
+- web server yang digunakan IIS menggunakan php-cgi.exe di folder C:\php-82
+- untuk kepentingan yang berhubungan dengan konten data yang perlu diinput dari panel admin, berikut usernya:
+  username : satrioarif21@gmail.com
+  password : 123
+- fitur dan isi konten mengacu pada website pp-presisi.co.id

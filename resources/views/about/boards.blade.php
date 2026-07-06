@@ -11,26 +11,73 @@
 </div>
 
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <!-- Breadcrumb -->
+    <div class="mb-8 text-sm text-gray-500 flex items-center">
+        <a href="{{ url('/') }}" class="hover:text-ppblue-700 transition">Home</a>
+        <span class="mx-2 font-bold">&gt;</span>
+        <span class="hover:text-ppblue-700 transition cursor-pointer">About Us</span>
+        <span class="mx-2 font-bold">&gt;</span>
+        <span class="text-gray-900 font-semibold">Boards</span>
+    </div>
+
+    <!-- Inner Tabs -->
+    <div class="border-b border-gray-300 mb-10 overflow-x-auto">
+        <div class="flex space-x-8 min-w-max">
+            <a href="{{ url('about/profile') }}" class="pb-3 transition {{ request()->is('about/profile') ? 'text-ppblue-700 border-b-4 border-ppblue-700 font-bold' : 'text-gray-400 hover:text-gray-900 font-medium' }}">Company Profile</a>
+            <a href="{{ url('about/structure') }}" class="pb-3 transition {{ request()->is('about/structure') ? 'text-ppblue-700 border-b-4 border-ppblue-700 font-bold' : 'text-gray-400 hover:text-gray-900 font-medium' }}">Company Structure</a>
+            <a href="{{ url('about/boards') }}" class="pb-3 transition {{ request()->is('about/boards') ? 'text-ppblue-700 border-b-4 border-ppblue-700 font-bold' : 'text-gray-400 hover:text-gray-900 font-medium' }}">Boards</a>
+            <a href="{{ url('about/miscellaneous') }}" class="pb-3 transition {{ request()->is('about/miscellaneous') ? 'text-ppblue-700 border-b-4 border-ppblue-700 font-bold' : 'text-gray-400 hover:text-gray-900 font-medium' }}">Miscellaneous</a>
+            <a href="{{ url('about/awards') }}" class="pb-3 transition {{ request()->is('about/awards') ? 'text-ppblue-700 border-b-4 border-ppblue-700 font-bold' : 'text-gray-400 hover:text-gray-900 font-medium' }}">Awards</a>
+        </div>
+    </div>
+
     @if(isset($boards) && $boards->count() > 0)
         <!-- Board of Commissioners -->
         <h2 class="text-3xl font-heading font-bold text-center text-ppblue-900 mb-12">Board of Commissioners</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
             @foreach($boards->where('type', 'komisaris') as $board)
-                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 group text-center p-8">
-                    <div class="w-32 h-32 mx-auto rounded-full bg-gray-200 mb-6 overflow-hidden border-4 border-white shadow-md">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 group text-center p-8 flex flex-col items-center">
+                    <div class="w-48 h-48 mx-auto rounded-full bg-gray-200 mb-6 overflow-hidden border-4 border-white shadow-md">
                         @if($board->image)
                             <img src="{{ asset('storage/' . $board->image) }}" alt="{{ $board->name }}" class="w-full h-full object-cover">
                         @else
                             <div class="w-full h-full flex items-center justify-center bg-ppblue-50 text-ppblue-500">
-                                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                             </div>
                         @endif
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-1 group-hover:text-ppblue-600 transition-colors">{{ $board->name }}</h3>
                     <p class="text-amber-600 font-medium text-sm uppercase tracking-wider mb-4">{{ $board->position }}</p>
-                    @if($board->description)
-                        <p class="text-gray-500 text-sm line-clamp-3">{{ $board->description }}</p>
-                    @endif
+                    <button onclick="openModal('modal-{{ $board->id }}')" class="mt-auto text-ppblue-600 font-semibold text-sm uppercase hover:text-ppblue-800 transition inline-flex items-center">
+                        VIEW BIO
+                    </button>
+                </div>
+
+                <!-- Modal for {{ $board->name }} -->
+                <div id="modal-{{ $board->id }}" class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-60 px-4 py-6" onclick="closeModalOnOutsideClick(event, 'modal-{{ $board->id }}')">
+                    <div class="bg-white w-full max-w-4xl rounded-xl shadow-2xl relative flex flex-col md:flex-row overflow-hidden max-h-full">
+                        <button onclick="closeModal('modal-{{ $board->id }}')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 z-10 bg-white rounded-full p-1 shadow-sm">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </button>
+                        <div class="w-full md:w-2/5 bg-gray-100 flex-shrink-0">
+                            @if($board->image)
+                                <img src="{{ asset('storage/' . $board->image) }}" alt="{{ $board->name }}" class="w-full h-full object-cover min-h-[300px]">
+                            @else
+                                <div class="w-full h-full min-h-[300px] flex items-center justify-center bg-ppblue-50 text-ppblue-500">
+                                    <svg class="w-24 h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                </div>
+                            @endif
+                        </div>
+                        <div class="w-full md:w-3/5 p-8 md:p-10 overflow-y-auto max-h-[80vh] md:max-h-full text-left">
+                            <div class="text-center mb-6">
+                                <h3 class="text-2xl font-heading font-bold text-gray-900 mb-1">{{ $board->name }}</h3>
+                                <p class="text-gray-600 font-medium">{{ $board->position }}</p>
+                            </div>
+                            <div class="prose max-w-none text-gray-700 text-sm md:text-base leading-relaxed text-justify">
+                                {!! nl2br(e($board->description)) !!}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             @endforeach
         </div>
@@ -39,21 +86,48 @@
         <h2 class="text-3xl font-heading font-bold text-center text-ppblue-900 mb-12">Board of Directors</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             @foreach($boards->where('type', 'direksi') as $board)
-                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 group text-center p-8">
-                    <div class="w-32 h-32 mx-auto rounded-full bg-gray-200 mb-6 overflow-hidden border-4 border-white shadow-md">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 group text-center p-8 flex flex-col items-center">
+                    <div class="w-48 h-48 mx-auto rounded-full bg-gray-200 mb-6 overflow-hidden border-4 border-white shadow-md">
                         @if($board->image)
                             <img src="{{ asset('storage/' . $board->image) }}" alt="{{ $board->name }}" class="w-full h-full object-cover">
                         @else
                             <div class="w-full h-full flex items-center justify-center bg-ppblue-50 text-ppblue-500">
-                                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                             </div>
                         @endif
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-1 group-hover:text-ppblue-600 transition-colors">{{ $board->name }}</h3>
                     <p class="text-ppblue-600 font-medium text-sm uppercase tracking-wider mb-4">{{ $board->position }}</p>
-                    @if($board->description)
-                        <p class="text-gray-500 text-sm line-clamp-3">{{ $board->description }}</p>
-                    @endif
+                    <button onclick="openModal('modal-{{ $board->id }}')" class="mt-auto text-ppblue-600 font-semibold text-sm uppercase hover:text-ppblue-800 transition inline-flex items-center">
+                        VIEW BIO
+                    </button>
+                </div>
+
+                <!-- Modal for {{ $board->name }} -->
+                <div id="modal-{{ $board->id }}" class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-60 px-4 py-6" onclick="closeModalOnOutsideClick(event, 'modal-{{ $board->id }}')">
+                    <div class="bg-white w-full max-w-4xl rounded-xl shadow-2xl relative flex flex-col md:flex-row overflow-hidden max-h-full">
+                        <button onclick="closeModal('modal-{{ $board->id }}')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 z-10 bg-white rounded-full p-1 shadow-sm">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </button>
+                        <div class="w-full md:w-2/5 bg-gray-100 flex-shrink-0">
+                            @if($board->image)
+                                <img src="{{ asset('storage/' . $board->image) }}" alt="{{ $board->name }}" class="w-full h-full object-cover min-h-[300px]">
+                            @else
+                                <div class="w-full h-full min-h-[300px] flex items-center justify-center bg-ppblue-50 text-ppblue-500">
+                                    <svg class="w-24 h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                </div>
+                            @endif
+                        </div>
+                        <div class="w-full md:w-3/5 p-8 md:p-10 overflow-y-auto max-h-[80vh] md:max-h-full text-left">
+                            <div class="text-center mb-6">
+                                <h3 class="text-2xl font-heading font-bold text-gray-900 mb-1">{{ $board->name }}</h3>
+                                <p class="text-gray-600 font-medium">{{ $board->position }}</p>
+                            </div>
+                            <div class="prose max-w-none text-gray-700 text-sm md:text-base leading-relaxed text-justify">
+                                {!! nl2br(e($board->description)) !!}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             @endforeach
         </div>
@@ -66,4 +140,30 @@
         </div>
     @endif
 </div>
+
+<script>
+    function openModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    function closeModalOnOutsideClick(event, id) {
+        if (event.target.id === id) {
+            closeModal(id);
+        }
+    }
+</script>
 @endsection

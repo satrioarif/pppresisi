@@ -2,13 +2,16 @@
 @section('title', 'Contact Us - PT PP Presisi Tbk')
 
 @section('content')
-<div class="bg-gray-50 pt-32 pb-20 border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-4">Get in Touch</h1>
-        <p class="text-gray-600 text-lg max-w-2xl mx-auto">Have questions about our services or investor relations? Reach out to our team.</p>
+<!-- Page Header -->
+<div class="pt-40 pb-24 relative overflow-hidden bg-cover bg-center" style="background-image: url('{{ asset('images/home/1a2036e6855da20155f60e4087f2837e.jpg') }}');">
+    <div class="absolute inset-0 bg-ppblue-900/80 z-0"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-4">Get in Touch</h1>
+        <p class="text-gray-200 text-lg max-w-2xl mx-auto">Have questions about our services or investor relations? Reach out to our team.</p>
     </div>
 </div>
 
+<div class="bg-slate-100 border-t border-gray-200">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
     
     @if(session('success'))
@@ -55,8 +58,15 @@
                 </ul>
             </div>
             
-            <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden h-64">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.8454471804975!2d106.86241321476948!3d-6.28409399545187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f298f2445107%3A0xc07a82c4f141fbce!2sPT%20PP%20Presisi%20Tbk!5e0!3m2!1sen!2sid!4v1655000000000!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden relative h-64 group">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.8454471804975!2d106.86241321476948!3d-6.28409399545187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f298f2445107%3A0xc07a82c4f141fbce!2sPT%20PP%20Presisi%20Tbk!5e0!3m2!1sen!2sid!4v1655000000000!5m2!1sen!2sid" width="100%" height="100%" style="border:0; pointer-events: none;" allowfullscreen="" loading="lazy"></iframe>
+                
+                <a href="https://maps.google.com/?q=Plaza+PP,+Jl.+Letjend+TB+Simatupang+No.57,+Pasar+Rebo,+Jakarta" target="_blank" class="absolute inset-0 z-10 flex items-center justify-center bg-black/10 group-hover:bg-black/30 transition-all duration-300">
+                    <span class="bg-white text-ppblue-700 font-bold px-6 py-3 rounded-xl shadow-lg flex items-center gap-2 transform group-hover:scale-105 transition-transform duration-300">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        Buka di Google Maps
+                    </span>
+                </a>
             </div>
         </div>
 
@@ -92,7 +102,7 @@
                         <textarea id="message" name="message" rows="5" required class="w-full px-5 py-3 rounded-xl border border-gray-300 focus:border-ppblue-500 focus:ring focus:ring-ppblue-200 outline-none transition bg-gray-50 resize-none"></textarea>
                     </div>
                     
-                    <button type="submit" class="w-full md:w-auto px-10 py-4 bg-ppblue-600 hover:bg-ppblue-800 text-white font-bold rounded-xl transition shadow-lg shadow-ppblue-500/30 flex justify-center items-center">
+                    <button type="submit" class="w-full md:w-auto px-10 py-4 bg-ppblue-500 hover:bg-ppblue-700 text-white font-bold rounded-xl transition shadow-lg shadow-ppblue-500/30 flex justify-center items-center">
                         Send Message
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </button>
@@ -101,5 +111,6 @@
         </div>
 
     </div>
+</div>
 </div>
 @endsection

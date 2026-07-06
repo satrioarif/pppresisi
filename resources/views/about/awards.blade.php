@@ -12,45 +12,81 @@
 
 <!-- Main Content -->
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Dummy Award 1 -->
-        <div class="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-amber-200 transition-all duration-300 text-center group">
-            <div class="w-16 h-16 mx-auto bg-amber-50 rounded-full flex items-center justify-center text-amber-500 mb-6 group-hover:scale-110 transition-transform">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+    <!-- Breadcrumb -->
+    <div class="mb-8 text-sm text-gray-500 flex items-center">
+        <a href="{{ url('/') }}" class="hover:text-ppblue-700 transition">Home</a>
+        <span class="mx-2 font-bold">&gt;</span>
+        <span class="hover:text-ppblue-700 transition cursor-pointer">About Us</span>
+        <span class="mx-2 font-bold">&gt;</span>
+        <span class="text-gray-900 font-semibold">Awards</span>
+    </div>
+
+    <!-- Inner Tabs -->
+    <div class="border-b border-gray-300 mb-10 overflow-x-auto">
+        <div class="flex space-x-8 min-w-max">
+            <a href="{{ url('about/profile') }}" class="pb-3 transition {{ request()->is('about/profile') ? 'text-ppblue-700 border-b-4 border-ppblue-700 font-bold' : 'text-gray-400 hover:text-gray-900 font-medium' }}">Company Profile</a>
+            <a href="{{ url('about/structure') }}" class="pb-3 transition {{ request()->is('about/structure') ? 'text-ppblue-700 border-b-4 border-ppblue-700 font-bold' : 'text-gray-400 hover:text-gray-900 font-medium' }}">Company Structure</a>
+            <a href="{{ url('about/boards') }}" class="pb-3 transition {{ request()->is('about/boards') ? 'text-ppblue-700 border-b-4 border-ppblue-700 font-bold' : 'text-gray-400 hover:text-gray-900 font-medium' }}">Boards</a>
+            <a href="{{ url('about/miscellaneous') }}" class="pb-3 transition {{ request()->is('about/miscellaneous') ? 'text-ppblue-700 border-b-4 border-ppblue-700 font-bold' : 'text-gray-400 hover:text-gray-900 font-medium' }}">Miscellaneous</a>
+            <a href="{{ url('about/awards') }}" class="pb-3 transition {{ request()->is('about/awards') ? 'text-ppblue-700 border-b-4 border-ppblue-700 font-bold' : 'text-gray-400 hover:text-gray-900 font-medium' }}">Awards</a>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+        <!-- Award 1 -->
+        <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-amber-200 transition-all duration-300 flex flex-col group">
+            <div class="w-full h-[300px] mb-6 overflow-hidden rounded-xl flex items-center justify-center p-2">
+                <img src="{{ asset('images/awards/Sertifikat1.jpg') }}" alt="Sertifikat BUMN Track Best CMO Branding" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-md">
             </div>
-            <h3 class="font-bold text-gray-900 mb-2">Best Construction Contractor</h3>
-            <p class="text-sm text-gray-500 mb-4">Indonesia Construction Award 2025</p>
-            <span class="inline-block px-3 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-full">2025</span>
+            <div class="text-left w-full">
+                <p class="text-sm text-gray-500 mb-2">Sertifikat BUMN Track</p>
+                <h3 class="font-bold text-gray-900 text-lg leading-tight mb-4">Best CMO Branding & Marketing High Impact Operational Marketing Excellence</h3>
+                <span class="inline-block px-4 py-1.5 bg-amber-50 text-amber-700 text-xs font-bold rounded-full">2025</span>
+            </div>
         </div>
 
-        <!-- Dummy Award 2 -->
-        <div class="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-amber-200 transition-all duration-300 text-center group">
-            <div class="w-16 h-16 mx-auto bg-amber-50 rounded-full flex items-center justify-center text-amber-500 mb-6 group-hover:scale-110 transition-transform">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+        <!-- Award 2 -->
+        <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-amber-200 transition-all duration-300 flex flex-col group">
+            <div class="w-full h-[300px] mb-6 overflow-hidden rounded-xl flex items-center justify-center p-2">
+                <img src="{{ asset('images/awards/Sertifikat2.jpg') }}" alt="Sertifikat BUMN Track Transformation Brand" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-md">
             </div>
-            <h3 class="font-bold text-gray-900 mb-2">Zero Accident Award</h3>
-            <p class="text-sm text-gray-500 mb-4">Ministry of Manpower</p>
-            <span class="inline-block px-3 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-full">2024</span>
-        </div>
-        
-        <!-- Dummy Award 3 -->
-        <div class="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-amber-200 transition-all duration-300 text-center group">
-            <div class="w-16 h-16 mx-auto bg-amber-50 rounded-full flex items-center justify-center text-amber-500 mb-6 group-hover:scale-110 transition-transform">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+            <div class="text-left w-full">
+                <p class="text-sm text-gray-500 mb-2">Sertifikat BUMN Track</p>
+                <h3 class="font-bold text-gray-900 text-lg leading-tight">Transformation Brand and Marketing in Digital Era Best Sustainable Branding Initiative</h3>
             </div>
-            <h3 class="font-bold text-gray-900 mb-2">Fastest Growing Subsidiary</h3>
-            <p class="text-sm text-gray-500 mb-4">PP Group Annual Awards</p>
-            <span class="inline-block px-3 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-full">2023</span>
         </div>
 
-        <!-- Dummy Award 4 -->
-        <div class="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-amber-200 transition-all duration-300 text-center group">
-            <div class="w-16 h-16 mx-auto bg-amber-50 rounded-full flex items-center justify-center text-amber-500 mb-6 group-hover:scale-110 transition-transform">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+        <!-- Award 3 -->
+        <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-amber-200 transition-all duration-300 flex flex-col group">
+            <div class="w-full h-[300px] mb-6 overflow-hidden rounded-xl flex items-center justify-center p-2">
+                <img src="{{ asset('images/awards/Sertifikat3.png') }}" alt="Top Corporate Award 2025" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-md">
             </div>
-            <h3 class="font-bold text-gray-900 mb-2">Good Corporate Governance</h3>
-            <p class="text-sm text-gray-500 mb-4">IICD Corporate Governance Award</p>
-            <span class="inline-block px-3 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-full">2023</span>
+            <div class="text-left w-full">
+                <h3 class="font-bold text-gray-900 text-lg leading-tight mb-4">Top Corporate Award</h3>
+                <span class="inline-block px-4 py-1.5 bg-amber-50 text-amber-700 text-xs font-bold rounded-full">2025</span>
+            </div>
+        </div>
+
+        <!-- Award 4 -->
+        <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-amber-200 transition-all duration-300 flex flex-col group">
+            <div class="w-full h-[300px] mb-6 overflow-hidden rounded-xl flex items-center justify-center p-2">
+                <img src="{{ asset('images/awards/Sertifikat4.jpg') }}" alt="Top GRC Award 2023" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-md">
+            </div>
+            <div class="text-left w-full">
+                <h3 class="font-bold text-gray-900 text-lg leading-tight mb-4">Top GRC Award</h3>
+                <span class="inline-block px-4 py-1.5 bg-amber-50 text-amber-700 text-xs font-bold rounded-full">2023</span>
+            </div>
+        </div>
+
+        <!-- Award 5 -->
+        <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-amber-200 transition-all duration-300 flex flex-col group">
+            <div class="w-full h-[300px] mb-6 overflow-hidden rounded-xl flex items-center justify-center p-2">
+                <img src="{{ asset('images/awards/Sertifikat5.jpg') }}" alt="TJSL & CSR AWARD 2023" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-md">
+            </div>
+            <div class="text-left w-full">
+                <h3 class="font-bold text-gray-900 text-lg leading-tight mb-4">TJSL & CSR AWARD</h3>
+                <span class="inline-block px-4 py-1.5 bg-amber-50 text-amber-700 text-xs font-bold rounded-full">2023</span>
+            </div>
         </div>
     </div>
 </div>

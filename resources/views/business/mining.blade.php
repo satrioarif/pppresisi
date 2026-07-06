@@ -5,7 +5,7 @@
 <!-- Page Header -->
 <div class="bg-gray-900 pt-32 pb-20 relative overflow-hidden">
     <div class="absolute inset-0 z-0">
-        <img src="https://images.unsplash.com/photo-1579970929227-2c933b9fec5a?q=80&w=2000" alt="Mining Services" class="w-full h-full object-cover mix-blend-overlay opacity-40">
+        <img src="{{ asset('images/home/0bc798a5e2bf375cef74a5c5f3c69a4a.jpg') }}" alt="Mining Services" class="w-full h-full object-cover mix-blend-overlay opacity-40">
         <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
@@ -17,40 +17,28 @@
 
 <!-- Main Content -->
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-3xl font-heading font-bold text-gray-900 mb-6">Excellence in Mining Operations</h2>
-        <p class="text-gray-600 text-lg leading-relaxed">
-            As a trusted mining contractor, PP Presisi leverages its extensive heavy equipment fleet and engineering capabilities to provide safe, efficient, and sustainable mining operations for coal, nickel, and other minerals.
-        </p>
+    <!-- Inner Tabs -->
+    <div class="border-b border-gray-300 mb-10 overflow-x-auto">
+        <div class="flex space-x-8 min-w-max">
+            <a href="{{ url('business/civil-work') }}" class="pb-3 transition text-gray-400 hover:text-gray-900 font-medium">Civil Work</a>
+            <a href="{{ url('business/mining-services') }}" class="pb-3 transition text-ppblue-700 border-b-4 border-ppblue-700 font-bold">Mining Services</a>
+            <a href="{{ url('business/heavy-equipment') }}" class="pb-3 transition text-gray-400 hover:text-gray-900 font-medium">Equipment Rental</a>
+        </div>
     </div>
 
-    <!-- Features Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-        <!-- Feature 1 -->
-        <div class="bg-white border border-gray-100 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 group">
-            <div class="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center text-amber-500 mb-6 group-hover:bg-amber-500 group-hover:text-white transition">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-            </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Hauling Road Construction</h3>
-            <p class="text-gray-600">Expertise in developing and maintaining robust hauling roads to ensure smooth and continuous transport of materials.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20">
+        <div>
+            <h2 class="text-3xl font-heading font-bold text-gray-900 mb-6">What is Mining Services</h2>
+            <p class="text-gray-600 text-lg leading-relaxed mb-4">
+                Mining services is the Company's new business line as resulting of improved engineering capacity, from only having the capability of coal hauling to have the ability to carry out integrated mining services.
+            </p>
+            <p class="text-gray-600 text-lg leading-relaxed">
+                The mining services business line is not new to the Company. The Company's subsidiary, LMA has been working on mining services since 2002, even before the LMA entered the civil work business in 2004.
+            </p>
         </div>
-
-        <!-- Feature 2 -->
-        <div class="bg-white border border-gray-100 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 group">
-            <div class="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center text-amber-500 mb-6 group-hover:bg-amber-500 group-hover:text-white transition">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-            </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Pit Services & Mining</h3>
-            <p class="text-gray-600">Full-scale pit operations including overburden removal, drilling, blasting, and ore extraction with high productivity.</p>
-        </div>
-
-        <!-- Feature 3 -->
-        <div class="bg-white border border-gray-100 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 group">
-            <div class="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center text-amber-500 mb-6 group-hover:bg-amber-500 group-hover:text-white transition">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
-            </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Ore Hauling</h3>
-            <p class="text-gray-600">Efficient transport of extracted minerals from the pit to stockpiles or ports using large-capacity dump trucks.</p>
+        <div class="grid grid-cols-2 gap-4 h-full">
+            <img src="{{ asset('images/home/0d9e6513867afcfe345e5bcbbdc245b8.jpg') }}" alt="Mining Equipment" class="rounded-2xl h-64 object-cover w-full shadow-lg transform translate-y-8">
+            <img src="{{ asset('images/home/18f933c427df7d0c630d46428e682a0e - Copy.jpg') }}" alt="Mining Hauling" class="rounded-2xl h-80 object-cover w-full shadow-lg">
         </div>
     </div>
 </div>

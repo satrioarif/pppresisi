@@ -34,7 +34,7 @@
 
         <!-- Content -->
         <div class="prose prose-lg max-w-none prose-a:text-ppblue-600 hover:prose-a:text-ppblue-800 prose-headings:font-heading prose-headings:font-bold prose-img:rounded-xl mb-12">
-            {!! $article->content !!}
+            {!! clean($article->content) !!}
         </div>
 
         <!-- Attachment Download -->

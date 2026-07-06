@@ -1,71 +1,143 @@
 @extends('layouts.main')
-@section('title', 'Stock Information - Investor Relations')
+@section('title', 'Stock Information - Investor Relations | PP Presisi')
 
 @section('content')
-<div class="bg-ppblue-900 pt-32 pb-20 relative overflow-hidden">
+
+{{-- ===================== HERO ===================== --}}
+<div class="bg-ppblue-900 pt-32 pb-24 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10" style="background: radial-gradient(ellipse at 20% 50%, #60a5fa 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, #3b82f6 0%, transparent 55%);"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-4">Stock Information</h1>
-        <p class="text-blue-100 text-lg max-w-2xl mx-auto">Track PT PP Presisi Tbk's market performance and stock data (IDX: PPRE).</p>
+        <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-blue-200 text-sm font-medium mb-6">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Investor Relations
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-5 leading-tight">
+            Stock <span class="text-blue-300">Information</span>
+        </h1>
+        <p class="text-blue-100 text-lg max-w-2xl mx-auto leading-relaxed">
+            Track PT PP Presisi Tbk's real-time market performance and stock data (IDX: PPRE).
+        </p>
     </div>
 </div>
 
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-    <!-- Stock Widget Placeholder -->
-    <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12 mb-16">
-        <div class="flex flex-col md:flex-row justify-between items-center border-b border-gray-100 pb-8 mb-8 gap-6">
-            <div>
-                <h2 class="text-3xl font-bold text-gray-900 flex items-center gap-3">
-                    PPRE <span class="text-sm font-normal text-gray-500 bg-gray-100 px-3 py-1 rounded-full">IDX</span>
-                </h2>
-                <p class="text-gray-500 mt-1">PT PP Presisi Tbk</p>
-            </div>
-            <div class="text-right">
-                <div class="text-4xl font-bold text-gray-900">Rp 125.00</div>
-                <div class="text-green-500 font-semibold flex items-center justify-end mt-1">
-                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
-                    +2.00 (+1.62%)
-                </div>
-            </div>
-        </div>
-        
-        <!-- Fake Chart Area -->
-        <div class="h-80 w-full bg-gray-50 rounded-xl border border-gray-100 flex items-center justify-center relative overflow-hidden">
-            <svg class="w-full h-full text-gray-200" preserveAspectRatio="none" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M0,80 Q10,70 20,75 T40,50 T60,60 T80,30 T100,40" stroke="url(#gradient)" stroke-width="3" fill="none" />
-                <path d="M0,80 Q10,70 20,75 T40,50 T60,60 T80,30 T100,40 L100,100 L0,100 Z" fill="url(#gradient-fill)" stroke="none" />
-                <defs>
-                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stop-color="#3b82f6" />
-                        <stop offset="100%" stop-color="#10b981" />
-                    </linearGradient>
-                    <linearGradient id="gradient-fill" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.2" />
-                        <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
-                    </linearGradient>
-                </defs>
-            </svg>
-            <span class="absolute text-gray-400 font-medium">Interactive Chart Integration Goes Here</span>
-        </div>
-    </div>
+@include('investor._nav', ['active' => 'stock'])
 
-    <!-- Details Grid -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-            <p class="text-sm text-gray-500 mb-1">Open</p>
-            <p class="text-xl font-bold text-gray-900">123.00</p>
+{{-- ===================== MAIN CONTENT ===================== --}}
+<div class="bg-gray-50 min-h-screen py-14">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {{-- Stock Header Badge --}}
+        <div class="flex flex-wrap items-center gap-4 mb-8">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl font-extrabold text-ppblue-900">PPRE</span>
+                <span class="text-xs font-semibold bg-ppblue-100 text-ppblue-700 px-2.5 py-1 rounded-full">IDX</span>
+            </div>
+            <span class="text-gray-400 text-sm hidden sm:block">|</span>
+            <span class="text-gray-600 text-sm">PT PP Presisi Tbk</span>
         </div>
-        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-            <p class="text-sm text-gray-500 mb-1">High</p>
-            <p class="text-xl font-bold text-gray-900">128.00</p>
+
+        {{-- Tab Container --}}
+        <div class="bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden" style="border-top: 4px solid #2563eb;">
+
+            {{-- Tab Buttons --}}
+            <div class="flex border-b border-gray-200 bg-gray-50">
+                <button id="tab-btn-intraday"
+                        onclick="switchTab('intraday')"
+                        class="stock-tab-btn px-6 py-4 text-sm font-semibold transition-colors duration-150 border-b-2 border-ppblue-600 text-ppblue-700 bg-white">
+                    📈 Intraday
+                </button>
+                <button id="tab-btn-historical"
+                        onclick="switchTab('historical')"
+                        class="stock-tab-btn px-6 py-4 text-sm font-semibold transition-colors duration-150 border-b-2 border-transparent text-gray-500 hover:text-ppblue-600">
+                    📊 Historical
+                </button>
+                <button id="tab-btn-calculator"
+                        onclick="switchTab('calculator')"
+                        class="stock-tab-btn px-6 py-4 text-sm font-semibold transition-colors duration-150 border-b-2 border-transparent text-gray-500 hover:text-ppblue-600">
+                    🧮 Calculator
+                </button>
+            </div>
+
+            {{-- Tab Panels --}}
+            {{-- Intraday --}}
+            <div id="tab-intraday" class="stock-tab-panel p-0">
+                <iframe
+                    src="https://xml.imq21.com/smart/widget/ppre/intraday.php"
+                    class="w-full border-0"
+                    style="height: 500px; min-height: 420px;"
+                    loading="lazy"
+                    title="PPRE Intraday Chart">
+                </iframe>
+            </div>
+
+            {{-- Historical --}}
+            <div id="tab-historical" class="stock-tab-panel p-0 hidden">
+                <iframe
+                    src="https://xml.imq21.com/smart/widget/ppre/historical.php"
+                    class="w-full border-0"
+                    style="height: 600px; min-height: 500px;"
+                    loading="lazy"
+                    title="PPRE Historical Data">
+                </iframe>
+            </div>
+
+            {{-- Calculator --}}
+            <div id="tab-calculator" class="stock-tab-panel p-0 hidden">
+                <iframe
+                    src="https://xml.imq21.com/smart/widget/ppre/calculator.php"
+                    class="w-full border-0"
+                    style="height: 420px; min-height: 380px;"
+                    loading="lazy"
+                    title="PPRE Investment Calculator">
+                </iframe>
+            </div>
         </div>
-        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-            <p class="text-sm text-gray-500 mb-1">Low</p>
-            <p class="text-xl font-bold text-gray-900">122.00</p>
+
+        {{-- Attribution --}}
+        <p class="text-xs text-gray-400 mt-3 text-right">
+            Market data provided by <a href="https://www.antara.net.id" target="_blank" rel="noopener" class="underline hover:text-gray-600">ANTARA</a>
+        </p>
+
+        {{-- Info Cards --}}
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+            <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm" style="border-top: 3px solid #2563eb;">
+                <p class="text-xs text-gray-500 mb-1 font-medium uppercase tracking-wide">Ticker</p>
+                <p class="text-xl font-extrabold text-ppblue-800">PPRE</p>
+            </div>
+            <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm" style="border-top: 3px solid #2563eb;">
+                <p class="text-xs text-gray-500 mb-1 font-medium uppercase tracking-wide">Exchange</p>
+                <p class="text-xl font-extrabold text-ppblue-800">IDX</p>
+            </div>
+            <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm" style="border-top: 3px solid #2563eb;">
+                <p class="text-xs text-gray-500 mb-1 font-medium uppercase tracking-wide">IPO Date</p>
+                <p class="text-lg font-extrabold text-ppblue-800">24 Nov 2017</p>
+            </div>
+            <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm" style="border-top: 3px solid #2563eb;">
+                <p class="text-xs text-gray-500 mb-1 font-medium uppercase tracking-wide">Shares Listed</p>
+                <p class="text-base font-extrabold text-ppblue-800">10,224,374,200</p>
+            </div>
         </div>
-        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-            <p class="text-sm text-gray-500 mb-1">Volume</p>
-            <p class="text-xl font-bold text-gray-900">14.5M</p>
-        </div>
+
     </div>
 </div>
+
+<script>
+function switchTab(tab) {
+    // Hide all panels
+    document.querySelectorAll('.stock-tab-panel').forEach(el => el.classList.add('hidden'));
+    // Reset all buttons
+    document.querySelectorAll('.stock-tab-btn').forEach(btn => {
+        btn.classList.remove('border-ppblue-600', 'text-ppblue-700', 'bg-white');
+        btn.classList.add('border-transparent', 'text-gray-500');
+    });
+
+    // Show target panel
+    document.getElementById('tab-' + tab).classList.remove('hidden');
+    // Activate button
+    const activeBtn = document.getElementById('tab-btn-' + tab);
+    activeBtn.classList.remove('border-transparent', 'text-gray-500');
+    activeBtn.classList.add('border-ppblue-600', 'text-ppblue-700', 'bg-white');
+}
+</script>
+
 @endsection

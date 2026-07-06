@@ -1,79 +1,96 @@
 @extends('layouts.main')
-@section('title', 'Whistleblowing System - Governance')
+@section('title', 'Whistleblowing System - GCG | PP Presisi')
 
 @section('content')
-<div class="bg-gray-900 pt-32 pb-20 relative overflow-hidden">
+
+{{-- ===================== HERO ===================== --}}
+<div class="bg-ppblue-900 pt-32 pb-24 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10" style="background: radial-gradient(ellipse at 20% 50%, #60a5fa 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, #3b82f6 0%, transparent 55%);"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-4">Whistleblowing System</h1>
-        <p class="text-gray-300 text-lg max-w-2xl mx-auto">A secure channel to report violations, fraud, or unethical behavior anonymously.</p>
+        <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-blue-200 text-sm font-medium mb-6">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+            </svg>
+            Good Corporate Governance
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-5 leading-tight">
+            Whistleblowing <span class="text-blue-300">System</span>
+        </h1>
+        <p class="text-blue-100 text-lg max-w-2xl mx-auto leading-relaxed">
+            Report violations securely and confidentially.
+        </p>
     </div>
 </div>
 
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        <div>
-            <div class="inline-block px-4 py-2 bg-red-50 text-red-600 rounded-full font-bold text-sm mb-6 border border-red-100">
-                CONFIDENTIAL & SECURE
-            </div>
-            <h2 class="text-3xl font-heading font-bold text-gray-900 mb-6">Report a Violation</h2>
-            <p class="text-gray-600 mb-6 leading-relaxed text-lg">
-                PT PP Presisi Tbk provides a Whistleblowing System (WBS) facility for all employees, partners, and the public to report any indications of fraud, corruption, or violations of the Code of Conduct.
-            </p>
-            <ul class="space-y-4 mb-8">
-                <li class="flex items-start">
-                    <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                    <span class="text-gray-700"><strong>Anonymous:</strong> Your identity is strictly protected.</span>
-                </li>
-                <li class="flex items-start">
-                    <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                    <span class="text-gray-700"><strong>Protected:</strong> We guarantee protection against retaliation.</span>
-                </li>
-                <li class="flex items-start">
-                    <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                    <span class="text-gray-700"><strong>Actionable:</strong> All valid reports are independently investigated.</span>
-                </li>
-            </ul>
-        </div>
+<section class="py-16 min-h-screen" style="background: #ffffff;">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="bg-white p-8 rounded-3xl shadow-2xl border border-gray-100">
-            <h3 class="text-2xl font-bold text-gray-900 mb-6">Submission Channels</h3>
-            
-            <div class="space-y-4">
-                <a href="mailto:wbs@pp-presisi.co.id" class="flex items-center p-4 rounded-xl border border-gray-200 hover:border-ppblue-500 hover:shadow-md transition group">
-                    <div class="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center text-gray-500 group-hover:text-ppblue-600 mr-4">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                    </div>
-                    <div>
-                        <p class="text-sm font-bold text-gray-900">Email</p>
-                        <p class="text-gray-500">wbs@pp-presisi.co.id</p>
-                    </div>
-                </a>
-                
-                <div class="flex items-center p-4 rounded-xl border border-gray-200">
-                    <div class="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center text-gray-500 mr-4">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                    </div>
-                    <div>
-                        <p class="text-sm font-bold text-gray-900">Hotline / WhatsApp</p>
-                        <p class="text-gray-500">+62 811 1234 5678</p>
-                    </div>
-                </div>
+        {{-- GCG Nav --}}
+        @include('gcg._nav')
 
-                <div class="flex items-center p-4 rounded-xl border border-gray-200">
-                    <div class="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center text-gray-500 mr-4">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                    </div>
-                    <div>
-                        <p class="text-sm font-bold text-gray-900">Mailing Address</p>
-                        <p class="text-gray-500 text-sm">Tim Investigasi WBS - PT PP Presisi Tbk<br>Plaza PP Wisma Subiyanto</p>
-                    </div>
+        {{-- Section Header --}}
+        <div class="flex items-start gap-5 mb-10 mt-8">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-md"
+                 style="background: linear-gradient(135deg, #1e3a8a, #2563eb);">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
+                </svg>
+            </div>
+            <div>
+                <h2 class="text-2xl md:text-3xl font-heading font-bold text-gray-900">
+                    <span class="font-extrabold" style="color: #111827;">Whistleblowing Documents</span>
+                </h2>
+                <p class="text-gray-500 text-sm mt-1">Download forms and guidelines for the whistleblowing system.</p>
+            </div>
+        </div>
+
+        @if(isset($documents) && $documents->count() > 0)
+            <div class="rounded-2xl border border-blue-200 shadow-md overflow-hidden" style="background: #eff6ff; border-top: 4px solid #2563eb;">
+                {{-- Column Headers --}}
+                <div class="flex items-center justify-between px-6 py-3" style="background: #1e40af;">
+                    <span class="text-xs font-bold uppercase tracking-widest" style="color: #bfdbfe;">Title</span>
+                    <span class="text-xs font-bold uppercase tracking-widest pr-2" style="color: #bfdbfe;">Download</span>
+                </div>
+                {{-- Document Rows --}}
+                <div class="divide-y divide-blue-100">
+                    @foreach($documents as $doc)
+                        <div class="flex items-center justify-between px-6 py-4 hover:bg-blue-50/40 transition-colors group">
+                            <div class="flex items-center gap-3 min-w-0 flex-1 pr-4">
+                                <svg class="w-4 h-4 flex-shrink-0 text-gray-300 group-hover:text-blue-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                                </svg>
+                                <div class="min-w-0">
+                                    <p class="font-semibold text-gray-800 text-sm group-hover:text-gray-900 truncate">{{ $doc->title }}</p>
+                                    @if($doc->year)
+                                        <p class="text-xs text-gray-400 mt-0.5">{{ $doc->year }}</p>
+                                    @endif
+                                </div>
+                            </div>
+                            <a href="{{ asset('storage/' . $doc->file_path) }}"
+                               target="_blank" rel="noopener noreferrer"
+                               class="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider text-white transition-all duration-200 hover:opacity-90 hover:scale-105 active:scale-95"
+                               style="background: linear-gradient(135deg, #1e40af, #2563eb);">
+                                DOWNLOAD
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                </svg>
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
-            
-            <a href="#" class="mt-8 block w-full py-4 text-center bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition shadow-lg shadow-red-500/30">
-                Submit Online Report
-            </a>
-        </div>
+        @else
+            <div class="text-center py-14 rounded-2xl border-2 border-blue-200 border-dashed" style="background: #eff6ff;">
+                <svg class="w-10 h-10 text-blue-200 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
+                </svg>
+                <h3 class="text-lg font-bold text-gray-600 mb-1">No Documents Yet</h3>
+                <p class="text-gray-400 text-sm">Upload documents via the admin panel using type <strong>Whistleblowing System</strong>.</p>
+            </div>
+        @endif
+
     </div>
-</div>
+</section>
+
 @endsection

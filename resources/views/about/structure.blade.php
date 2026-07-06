@@ -13,46 +13,35 @@
 
 <!-- Main Content -->
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-    
-    <div class="inline-block bg-white p-10 rounded-3xl shadow-xl border border-gray-100 w-full max-w-4xl relative">
-        <h2 class="text-2xl font-bold text-gray-800 mb-12">Corporate Ownership Structure</h2>
+    <!-- Breadcrumb -->
+    <div class="mb-8 text-sm text-gray-500 flex items-center justify-start text-left">
+        <a href="{{ url('/') }}" class="hover:text-ppblue-700 transition">Home</a>
+        <span class="mx-2 font-bold">&gt;</span>
+        <span class="hover:text-ppblue-700 transition cursor-pointer">About Us</span>
+        <span class="mx-2 font-bold">&gt;</span>
+        <span class="text-gray-900 font-semibold">Company Structure</span>
+    </div>
+
+    <!-- Inner Tabs -->
+    <div class="border-b border-gray-300 mb-10 overflow-x-auto text-left">
+        <div class="flex space-x-8 min-w-max">
+            <a href="{{ url('about/profile') }}" class="pb-3 transition {{ request()->is('about/profile') ? 'text-ppblue-700 border-b-4 border-ppblue-700 font-bold' : 'text-gray-400 hover:text-gray-900 font-medium' }}">Company Profile</a>
+            <a href="{{ url('about/structure') }}" class="pb-3 transition {{ request()->is('about/structure') ? 'text-ppblue-700 border-b-4 border-ppblue-700 font-bold' : 'text-gray-400 hover:text-gray-900 font-medium' }}">Company Structure</a>
+            <a href="{{ url('about/boards') }}" class="pb-3 transition {{ request()->is('about/boards') ? 'text-ppblue-700 border-b-4 border-ppblue-700 font-bold' : 'text-gray-400 hover:text-gray-900 font-medium' }}">Boards</a>
+            <a href="{{ url('about/miscellaneous') }}" class="pb-3 transition {{ request()->is('about/miscellaneous') ? 'text-ppblue-700 border-b-4 border-ppblue-700 font-bold' : 'text-gray-400 hover:text-gray-900 font-medium' }}">Miscellaneous</a>
+            <a href="{{ url('about/awards') }}" class="pb-3 transition {{ request()->is('about/awards') ? 'text-ppblue-700 border-b-4 border-ppblue-700 font-bold' : 'text-gray-400 hover:text-gray-900 font-medium' }}">Awards</a>
+        </div>
+    </div>
+    <div class="inline-block bg-white p-10 rounded-3xl shadow-xl border border-gray-100 w-full max-w-5xl relative">
+        <h2 class="text-2xl font-bold text-gray-800 mb-10">Corporate Ownership Structure</h2>
         
-        <!-- Simple CSS Tree Structure -->
-        <div class="flex flex-col items-center">
-            <!-- Parent -->
-            <div class="bg-ppblue-900 text-white px-8 py-4 rounded-xl shadow-md font-bold text-xl relative z-10">
-                PT PP (Persero) Tbk
+        <div class="flex flex-col items-center gap-12">
+            <div class="w-full hover:scale-[1.01] transition-transform duration-300">
+                <img src="{{ asset('images/aboutus/SO.jpeg') }}" alt="Company Structure" class="w-full h-auto rounded-xl shadow-lg border border-gray-100">
             </div>
             
-            <!-- Connecting Line -->
-            <div class="w-1 h-12 bg-gray-300"></div>
-            
-            <!-- Child -->
-            <div class="bg-ppblue-600 text-white px-10 py-5 rounded-xl shadow-lg font-bold text-2xl relative z-10 transform hover:scale-105 transition-transform">
-                PT PP Presisi Tbk
-            </div>
-
-            <!-- Connecting Line -->
-            <div class="w-1 h-12 bg-gray-300"></div>
-            <div class="w-full max-w-2xl h-1 bg-gray-300"></div>
-
-            <!-- Subsidiaries -->
-            <div class="flex justify-between w-full max-w-2xl pt-8 relative">
-                <!-- Lines down -->
-                <div class="absolute top-0 left-0 w-full flex justify-between">
-                    <div class="w-1 h-8 bg-gray-300 ml-[15%]"></div>
-                    <div class="w-1 h-8 bg-gray-300 mr-[15%]"></div>
-                </div>
-
-                <div class="w-[40%] bg-white border-2 border-gray-200 px-6 py-4 rounded-xl shadow-sm hover:border-ppblue-500 transition-colors">
-                    <h4 class="font-bold text-gray-800">PT Lancarjaya Mandiri Abadi</h4>
-                    <p class="text-sm text-gray-500 mt-2">Subsidiary (Mining & Civil)</p>
-                </div>
-                
-                <div class="w-[40%] bg-white border-2 border-gray-200 px-6 py-4 rounded-xl shadow-sm hover:border-ppblue-500 transition-colors">
-                    <h4 class="font-bold text-gray-800">Other Entities</h4>
-                    <p class="text-sm text-gray-500 mt-2">Joint Operations / Affiliates</p>
-                </div>
+            <div class="w-full hover:scale-[1.01] transition-transform duration-300">
+                <img src="{{ asset('images/aboutus/SO2.jpg') }}" alt="Board of Directors" class="w-full h-auto rounded-xl shadow-lg border border-gray-100">
             </div>
         </div>
     </div>

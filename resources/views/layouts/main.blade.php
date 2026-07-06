@@ -72,6 +72,7 @@
                             <a href="{{ url('about/profile') }}" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-ppblue-700 rounded-t-xl transition">Company Profile</a>
                             <a href="{{ url('about/structure') }}" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-ppblue-700 transition">Company Structure</a>
                             <a href="{{ url('about/boards') }}" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-ppblue-700 transition">Boards</a>
+                            <a href="{{ url('about/miscellaneous') }}" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-ppblue-700 transition">Miscellaneous</a>
                             <a href="{{ url('about/awards') }}" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-ppblue-700 rounded-b-xl transition">Awards</a>
                         </div>
                     </div>
@@ -96,37 +97,21 @@
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </a>
                         <div class="absolute left-0 top-full mt-1 w-56 bg-white border border-gray-100 shadow-xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left scale-95 group-hover:scale-100">
-                            <a href="{{ url('investor/report') }}" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-ppblue-700 rounded-t-xl transition">Financial Reports</a>
+                            <a href="{{ url('investor/report') }}" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-ppblue-700 rounded-t-xl transition">Reports</a>
                             <a href="{{ url('investor/stock') }}" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-ppblue-700 transition">Stock Info</a>
                             <a href="{{ url('investor/presentation') }}" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-ppblue-700 transition">Presentations</a>
                             <a href="{{ url('investor/rups') }}" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-ppblue-700 transition">RUPS / GMS</a>
                             <a href="{{ url('investor/corporate-action') }}" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-ppblue-700 transition">Corporate Action</a>
                             <a href="{{ url('investor/prospectus') }}" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-ppblue-700 transition">Prospectus</a>
-                            <a href="{{ url('investor/capital-market') }}" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-ppblue-700 rounded-b-xl transition">Capital Market</a>
+                            <a href="{{ url('investor/capital-market') }}" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-ppblue-700 transition">Capital Market</a>
+                            <a href="{{ url('investor/transparency-of-information') }}" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-ppblue-700 rounded-b-xl transition">Transparency of Information</a>
                         </div>
                     </div>
 
-                    <!-- GCG & CSR Dropdown -->
-                    <div class="group relative">
-                        <a href="#" class="text-gray-600 hover:text-ppblue-700 font-medium py-2 flex items-center gap-1">
-                            GCG & CSR
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </a>
-                        <div class="absolute left-0 top-full mt-1 w-64 bg-white border border-gray-100 shadow-xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left scale-95 group-hover:scale-100 p-2">
-                            <div class="text-xs font-bold text-gray-400 uppercase tracking-wider px-3 py-2">Governance</div>
-                            <a href="{{ url('gcg/guidelines') }}" class="block px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-ppblue-700 rounded-lg transition">Code of Conduct & Policy</a>
-                            <a href="{{ url('gcg/committees') }}" class="block px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-ppblue-700 rounded-lg transition">Committees & Audit</a>
-                            <a href="{{ url('gcg/whistleblowing') }}" class="block px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-ppblue-700 rounded-lg transition mb-2">Whistleblowing System</a>
-                            
-                            <div class="border-t border-gray-100 my-1"></div>
-                            
-                            <div class="text-xs font-bold text-gray-400 uppercase tracking-wider px-3 py-2 mt-1">Responsibility</div>
-                            <a href="{{ url('csr/community') }}" class="block px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-ppblue-700 rounded-lg transition">Community Development</a>
-                            <a href="{{ url('csr/hse') }}" class="block px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-ppblue-700 rounded-lg transition">Health, Safety & Environment</a>
-                        </div>
-                    </div>
+                    <a href="{{ url('gcg') }}" class="text-gray-600 hover:text-ppblue-700 font-medium transition py-2">GCG</a>
+                    <a href="{{ url('csr') }}" class="text-gray-600 hover:text-ppblue-700 font-medium transition py-2">CSR</a>
 
-                    <a href="{{ url('projects') }}" class="text-gray-600 hover:text-ppblue-700 font-medium transition py-2">Projects</a>
+                    {{-- <a href="{{ url('projects') }}" class="text-gray-600 hover:text-ppblue-700 font-medium transition py-2">Projects</a> --}}
                     <a href="{{ url('news') }}" class="text-gray-600 hover:text-ppblue-700 font-medium transition py-2">News</a>
                     <a href="{{ url('contact') }}" class="text-gray-600 hover:text-ppblue-700 font-medium transition py-2">Contact</a>
                     
@@ -145,6 +130,7 @@
                     <a href="{{ url('about/profile') }}" class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-ppblue-700 hover:bg-blue-50">Company Profile</a>
                     <a href="{{ url('about/structure') }}" class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-ppblue-700 hover:bg-blue-50">Company Structure</a>
                     <a href="{{ url('about/boards') }}" class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-ppblue-700 hover:bg-blue-50">Boards</a>
+                    <a href="{{ url('about/miscellaneous') }}" class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-ppblue-700 hover:bg-blue-50">Miscellaneous</a>
                     <a href="{{ url('about/awards') }}" class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-ppblue-700 hover:bg-blue-50">Awards</a>
                 </div>
 
@@ -164,20 +150,12 @@
                     <a href="{{ url('investor/corporate-action') }}" class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-ppblue-700 hover:bg-blue-50">Corporate Action</a>
                     <a href="{{ url('investor/prospectus') }}" class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-ppblue-700 hover:bg-blue-50">Prospectus</a>
                     <a href="{{ url('investor/capital-market') }}" class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-ppblue-700 hover:bg-blue-50">Capital Market</a>
+                    <a href="{{ url('investor/transparency-of-information') }}" class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-ppblue-700 hover:bg-blue-50">Transparency of Information</a>
                 </div>
 
-                <div class="space-y-1">
-                    <div class="px-3 py-2 text-base font-bold text-gray-900 border-b border-gray-100">GCG & CSR</div>
-                    <div class="px-6 py-1 text-xs font-bold text-gray-400 uppercase">Governance</div>
-                    <a href="{{ url('gcg/guidelines') }}" class="block pl-8 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-ppblue-700 hover:bg-blue-50">Code of Conduct</a>
-                    <a href="{{ url('gcg/committees') }}" class="block pl-8 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-ppblue-700 hover:bg-blue-50">Committees & Audit</a>
-                    <a href="{{ url('gcg/whistleblowing') }}" class="block pl-8 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-ppblue-700 hover:bg-blue-50">Whistleblowing</a>
-                    <div class="px-6 py-1 text-xs font-bold text-gray-400 uppercase mt-2">Responsibility</div>
-                    <a href="{{ url('csr/community') }}" class="block pl-8 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-ppblue-700 hover:bg-blue-50">Community Development</a>
-                    <a href="{{ url('csr/hse') }}" class="block pl-8 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-ppblue-700 hover:bg-blue-50">HSE</a>
-                </div>
-
-                <a href="{{ url('projects') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-ppblue-700 hover:bg-blue-50 border-t border-gray-100 mt-2 pt-2">Projects</a>
+                <a href="{{ url('gcg') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-ppblue-700 hover:bg-blue-50 border-t border-gray-100 mt-2 pt-2">GCG</a>
+                <a href="{{ url('csr') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-ppblue-700 hover:bg-blue-50">CSR</a>
+                {{-- <a href="{{ url('projects') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-ppblue-700 hover:bg-blue-50">Projects</a> --}}
                 <a href="{{ url('news') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-ppblue-700 hover:bg-blue-50">News</a>
                 <a href="{{ url('contact') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-ppblue-700 hover:bg-blue-50">Contact</a>
             </div>
@@ -206,7 +184,7 @@
                 <ul class="space-y-3">
                     <li><a href="{{ url('about/profile') }}" class="hover:text-white transition">About Us</a></li>
                     <li><a href="#" class="hover:text-white transition">Business Units</a></li>
-                    <li><a href="#" class="hover:text-white transition">Projects</a></li>
+                    {{-- <li><a href="#" class="hover:text-white transition">Projects</a></li> --}}
                     <li><a href="#" class="hover:text-white transition">Investor Relations</a></li>
                 </ul>
             </div>

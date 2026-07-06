@@ -6,5 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Board extends Model
 {
-    protected $guarded = [];
+    protected $fillable = [
+        'name',
+        'position',
+        'type',
+        'image',
+        'description',
+        'order',
+    ];
 }
