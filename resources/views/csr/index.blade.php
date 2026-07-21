@@ -3,26 +3,11 @@
 
 @section('content')
 
-{{-- ===================== HERO ===================== --}}
-<div class="bg-ppblue-900 pt-32 pb-24 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10" style="background: radial-gradient(ellipse at 20% 50%, #60a5fa 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, #3b82f6 0%, transparent 55%);"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-blue-200 text-sm font-medium mb-6">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
-            </svg>
-            Responsibility
-        </div>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-5 leading-tight">
-            Corporate Social <span class="text-blue-300">Responsibility</span>
-        </h1>
-        <p class="text-blue-100 text-lg max-w-2xl mx-auto leading-relaxed">
-            Our commitment to sustainable development and positive community impact.
-        </p>
-    </div>
-</div>
+<x-page-header badge="Responsibility" subtitle="Our commitment to sustainable development and positive community impact.">
+    Corporate Social <span class="text-ppblue-300">Responsibility</span>
+</x-page-header>
 
-<section class="py-16 min-h-screen" style="background: #ffffff;">
+<section class="py-16 min-h-screen bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="space-y-16">
@@ -46,14 +31,14 @@
             </div>
 
             {{-- Section 2: Community & HSE --}}
-            <div class="bg-blue-50 rounded-3xl overflow-hidden border border-blue-100">
+            <div class="bg-ppblue-50 rounded-3xl overflow-hidden border border-ppblue-100">
                 <div class="flex flex-col md:flex-row-reverse">
                     <div class="w-full md:w-2/5 relative min-h-[400px]">
                         {{-- Image Placeholder --}}
                         <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('http://panelppre.pp-presisi.co.id/assets/images/402916b39660665648bbf4cd1fba1e3f.jpg');"></div>
                     </div>
                     <div class="w-full md:w-3/5 p-8 md:p-12">
-                        <div class="inline-block bg-blue-600 text-white text-xs font-bold px-3 py-1 uppercase tracking-widest rounded-md mb-4">CSR Program</div>
+                        <div class="inline-block bg-ppblue-600 text-white text-xs font-bold px-3 py-1 uppercase tracking-widest rounded-md mb-4">CSR Program</div>
                         
                         <h2 class="text-2xl font-heading font-extrabold text-gray-900 mb-4">Community Development Program</h2>
                         <div class="prose text-gray-600 max-w-none text-justify mb-8">

@@ -9,15 +9,58 @@
     --font-sans: 'Space Grotesk', sans-serif;
     --font-heading: 'Space Grotesk', sans-serif;
 
+    /* Primary brand ramp (existing anchors preserved as-is; 200/300/400 fill the gaps
+       using the same blue-400/500 hex already hardcoded in several page hero gradients). */
     --color-ppblue-50: #f8fafc;
     --color-ppblue-100: #f1f5f9;
+    --color-ppblue-200: #e2e8f0;
+    --color-ppblue-300: #cbd5e1;
+    --color-ppblue-400: #60a5fa;
     --color-ppblue-500: #3b82f6;
     --color-ppblue-600: #1e3a8a;
     --color-ppblue-700: #1e3a8a;
     --color-ppblue-800: #172554;
     --color-ppblue-900: #0f172a;
 
+    /* Secondary/tertiary brand colors, expanded into light/base/dark steps.
+       accent-dark fixes a previously undefined `text-accent-dark` utility already
+       referenced in investor/stock.blade.php. */
+    --color-accent-light: #fb923c;
     --color-accent: #ea580c;
+    --color-accent-dark: #9a3412;
+
+    --color-ppyellow-light: #fcd34d;
     --color-ppyellow: #f59e0b;
+    --color-ppyellow-dark: #b45309;
+
+    --color-gold-light: #eab308;
     --color-gold: #ca8a04;
+    --color-gold-dark: #854d0e;
+
+    /* Type scale: named sizes for the hero and section-header roles that are
+       currently done ad hoc with mismatched text-4xl/5xl/6xl/[4.5rem] per page. */
+    --text-hero: 4.5rem;
+    --text-hero--line-height: 1.1;
+    --text-display: 3.5rem;
+    --text-display--line-height: 1.15;
+
+    /* Section vertical rhythm: replaces the inconsistent py-16/py-20/py-32 mix. */
+    --spacing-section-sm: 4rem;
+    --spacing-section-md: 5rem;
+    --spacing-section-lg: 8rem;
+
+    /* Radius scale: replaces the ad hoc rounded-3xl/[2rem]/[2.5rem]/[3rem] mix. */
+    --radius-card: 1.5rem;
+    --radius-card-lg: 2rem;
+    --radius-pill: 9999px;
+
+    /* Shadow scale: brand-tinted card and CTA shadows used ad hoc via shadow-gray-200/50,
+       shadow-accent/30, etc. */
+    --shadow-card: 0 20px 25px -5px rgb(15 23 42 / 0.08), 0 8px 10px -6px rgb(15 23 42 / 0.05);
+    --shadow-card-hover: 0 25px 50px -12px rgb(15 23 42 / 0.15);
+    --shadow-cta: 0 10px 25px -5px rgb(234 88 12 / 0.35);
+}
+
+[x-cloak] {
+    display: none !important;
 }

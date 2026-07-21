@@ -2,18 +2,14 @@
 @section('title', 'Civil Work - PT PP Presisi Tbk')
 
 @section('content')
-<!-- Page Header -->
-<div class="bg-gradient-to-br from-ppblue-900 to-ppblue-800 pt-40 pb-24 relative overflow-hidden">
-    <div class="absolute inset-0 z-0">
-        <img src="{{ asset('images/home/3c740a51dc54fcabeb35c5c3aeadeafb.jpg') }}" alt="Civil Work" class="w-full h-full object-cover mix-blend-overlay opacity-30" width="1920" height="1080" loading="lazy">
-        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
-    </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal fade-bottom">
-        <span class="inline-block py-2 px-4 rounded-full bg-accent/20 text-accent text-xs font-bold tracking-widest uppercase mb-4 border border-accent/30">BUSINESS UNIT</span>
-        <h1 class="text-5xl md:text-6xl font-heading font-black text-white mb-4">Civil Work</h1>
-        <p class="text-gray-300 text-lg max-w-2xl mx-auto">Building the nation's critical infrastructure with integrated solutions, advanced technology, and heavy equipment expertise.</p>
-    </div>
-</div>
+<x-page-header
+    image="{{ asset('images/home/3c740a51dc54fcabeb35c5c3aeadeafb.jpg') }}"
+    badge="BUSINESS UNIT"
+    subtitle="Building the nation's critical infrastructure with integrated solutions, advanced technology, and heavy equipment expertise."
+    class="reveal fade-bottom"
+>
+    Civil Work
+</x-page-header>
 
 <!-- Main Content -->
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -53,18 +49,9 @@
     </div>
 </div>
 
-<!-- CTA -->
-<div class="bg-ppblue-900 py-20 relative overflow-hidden">
-    <div class="absolute inset-0 bg-[url('{{ asset('images/pattern-grid.png') }}')] opacity-5"></div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal fade-bottom">
-        <h2 class="text-3xl md:text-4xl font-black text-white mb-6">Have an infrastructure project in mind?</h2>
-        <p class="text-gray-400 mb-10 text-lg">Let's collaborate to build reliable and sustainable civil infrastructure.</p>
-        <a href="#" class="inline-flex items-center justify-center px-8 py-4 text-sm font-bold text-gray-900 bg-accent rounded-full hover:bg-yellow-400 transition-colors shadow-lg shadow-accent/20 uppercase tracking-widest group">
-            Discuss with our Experts
-            <svg class="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-        </a>
-    </div>
-</div>
+<x-cta-band subtitle="Let's collaborate to build reliable and sustainable civil infrastructure." buttonHref="{{ url('contact') }}" class="reveal fade-bottom">
+    Have an infrastructure project in mind?
+</x-cta-band>
 <style>
     .reveal {
         opacity: 0;

@@ -2,14 +2,9 @@
 @section('title', 'Miscellaneous - PT PP Presisi Tbk')
 
 @section('content')
-<!-- Page Header -->
-<div class="bg-gradient-to-br from-ppblue-900 to-ppblue-800 pt-40 pb-24 relative overflow-hidden">
-    <div class="absolute inset-0 bg-[url('{{ asset('images/pattern-grid.png') }}')] opacity-5"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal fade-bottom">
-        <h1 class="text-5xl md:text-6xl font-heading font-black text-white mb-4">Miscellaneous</h1>
-        <p class="text-gray-300 text-lg max-w-2xl mx-auto">Miscellaneous company documents and resources.</p>
-    </div>
-</div>
+<x-page-header subtitle="Miscellaneous company documents and resources." class="reveal fade-bottom">
+    Miscellaneous
+</x-page-header>
 
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
     <!-- Breadcrumb -->

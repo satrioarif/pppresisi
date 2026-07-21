@@ -2,13 +2,9 @@
 @section('title', 'Company Profile - PT PP Presisi Tbk')
 
 @section('content')
-<!-- Page Header -->
-<div class="pt-48 pb-32 relative overflow-hidden bg-cover bg-center" style="background-image: url('{{ asset('images/aboutus/image1.jpg') }}');">
-    <div class="absolute inset-0 bg-gradient-to-r from-ppblue-900 via-ppblue-900/80 to-transparent z-0"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <h1 class="text-5xl md:text-6xl font-heading font-black text-white reveal fade-right">Company Profile</h1>
-    </div>
-</div>
+<x-page-header image="{{ asset('images/aboutus/image1.jpg') }}" align="left" class="reveal fade-right">
+    Company Profile
+</x-page-header>
 
 <!-- Main Content -->
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">

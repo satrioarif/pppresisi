@@ -3,25 +3,9 @@
 
 @section('content')
 
-{{-- ===================== HERO ===================== --}}
-<div class="bg-gradient-to-br from-ppblue-900 to-ppblue-800 pt-40 pb-24 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10" style="background: radial-gradient(ellipse at 20% 50%, #60a5fa 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, #3b82f6 0%, transparent 55%);"></div>
-    <div class="absolute inset-0 bg-[url('{{ asset('images/pattern-grid.png') }}')] opacity-5"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal fade-bottom">
-        <div class="inline-flex items-center gap-2 bg-accent/20 border border-accent/30 rounded-full px-4 py-1.5 text-accent text-xs font-bold tracking-widest uppercase mb-6">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
-            Investor Relations
-        </div>
-        <h1 class="text-5xl md:text-6xl font-heading font-black text-white mb-5 leading-tight">
-            Prospectus
-        </h1>
-        <p class="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-            Official prospectus documents of PT PP Presisi Tbk.
-        </p>
-    </div>
-</div>
+<x-page-header badge="Investor Relations" subtitle="Official prospectus documents of PT PP Presisi Tbk." class="reveal fade-bottom">
+    Prospectus
+</x-page-header>
 
 @include('investor._nav', ['active' => 'prospectus'])
 
@@ -62,8 +46,7 @@
 
         {{-- ===== DOCUMENT TABLE ===== --}}
         <div class="flex items-start gap-5 mb-8">
-            <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-md"
-                 style="background: linear-gradient(135deg, #1e3a8a, #2563eb);">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-md bg-gradient-to-br from-ppblue-900 to-ppblue-600">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                           d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
@@ -113,7 +96,7 @@
             </div>
         @else
             {{-- Empty state with the 4 reference documents shown as placeholders --}}
-            <div class="rounded-[2rem] border border-blue-100 shadow-xl shadow-gray-200/50 overflow-hidden reveal fade-up bg-white">
+            <div class="rounded-[2rem] border border-ppblue-100 shadow-xl shadow-gray-200/50 overflow-hidden reveal fade-up bg-white">
                 <div class="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-ppblue-900 to-ppblue-600">
                     <span class="text-xs font-bold uppercase tracking-widest text-white">Title</span>
                     <span class="text-xs font-bold uppercase tracking-widest text-white pr-2">Download</span>

@@ -2,14 +2,9 @@
 @section('title', 'Awards - PT PP Presisi Tbk')
 
 @section('content')
-<!-- Page Header -->
-<div class="bg-gradient-to-br from-ppblue-900 to-ppblue-800 pt-40 pb-24 relative overflow-hidden">
-    <div class="absolute inset-0 bg-[url('{{ asset('images/pattern-grid.png') }}')] opacity-5"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal fade-bottom">
-        <h1 class="text-5xl md:text-6xl font-heading font-black text-white mb-4">Awards & Recognitions</h1>
-        <p class="text-gray-300 text-lg max-w-2xl mx-auto">A testament to our unwavering commitment to quality, safety, and corporate excellence.</p>
-    </div>
-</div>
+<x-page-header subtitle="A testament to our unwavering commitment to quality, safety, and corporate excellence." class="reveal fade-bottom">
+    Awards &amp; Recognitions
+</x-page-header>
 
 <!-- Main Content -->
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">

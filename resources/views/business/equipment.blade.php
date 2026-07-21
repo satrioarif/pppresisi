@@ -2,18 +2,14 @@
 @section('title', 'Heavy Equipment - PT PP Presisi Tbk')
 
 @section('content')
-<!-- Page Header -->
-<div class="bg-gradient-to-br from-ppblue-900 to-ppblue-800 pt-40 pb-24 relative overflow-hidden">
-    <div class="absolute inset-0 z-0">
-        <img src="{{ asset('images/home/1cd1ba9cfcc8b96a239cff7badabbcd6.JPG') }}" alt="Heavy Equipment" class="w-full h-full object-cover mix-blend-overlay opacity-30" width="1920" height="1080" loading="lazy">
-        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
-    </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal fade-bottom">
-        <span class="inline-block py-2 px-4 rounded-full bg-accent/20 text-accent text-xs font-bold tracking-widest uppercase mb-4 border border-accent/30">BUSINESS UNIT</span>
-        <h1 class="text-5xl md:text-6xl font-heading font-black text-white mb-4">Equipment Rental</h1>
-        <p class="text-gray-300 text-lg max-w-2xl mx-auto">The foundation of our operational strength, featuring a massive fleet of modern heavy machinery and production plants.</p>
-    </div>
-</div>
+<x-page-header
+    image="{{ asset('images/home/1cd1ba9cfcc8b96a239cff7badabbcd6.JPG') }}"
+    badge="BUSINESS UNIT"
+    subtitle="The foundation of our operational strength, featuring a massive fleet of modern heavy machinery and production plants."
+    class="reveal fade-bottom"
+>
+    Equipment Rental
+</x-page-header>
 
 <!-- Main Content -->
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -59,6 +55,10 @@
         </div>
     </div>
 </div>
+
+<x-cta-band subtitle="Talk to us about renting reliable, well-maintained heavy equipment for your next project." buttonHref="{{ url('contact') }}" class="reveal fade-bottom">
+    Need heavy equipment on-site?
+</x-cta-band>
 <style>
     .reveal {
         opacity: 0;

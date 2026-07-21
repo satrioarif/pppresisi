@@ -2,18 +2,14 @@
 @section('title', 'Mining Services - PT PP Presisi Tbk')
 
 @section('content')
-<!-- Page Header -->
-<div class="bg-gradient-to-br from-ppblue-900 to-ppblue-800 pt-40 pb-24 relative overflow-hidden">
-    <div class="absolute inset-0 z-0">
-        <img src="{{ asset('images/home/0bc798a5e2bf375cef74a5c5f3c69a4a.jpg') }}" alt="Mining Services" class="w-full h-full object-cover mix-blend-overlay opacity-40" width="1000" height="663" loading="lazy">
-        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
-    </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal fade-bottom">
-        <span class="inline-block py-2 px-4 rounded-full bg-accent/20 text-accent text-xs font-bold tracking-widest uppercase mb-4 border border-accent/30">BUSINESS UNIT</span>
-        <h1 class="text-5xl md:text-6xl font-heading font-black text-white mb-4">Mining Services</h1>
-        <p class="text-gray-300 text-lg max-w-2xl mx-auto">Providing comprehensive end-to-end mining contractor services from land clearing to ore hauling.</p>
-    </div>
-</div>
+<x-page-header
+    image="{{ asset('images/home/0bc798a5e2bf375cef74a5c5f3c69a4a.jpg') }}"
+    badge="BUSINESS UNIT"
+    subtitle="Providing comprehensive end-to-end mining contractor services from land clearing to ore hauling."
+    class="reveal fade-bottom"
+>
+    Mining Services
+</x-page-header>
 
 <!-- Main Content -->
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -49,6 +45,10 @@
         </div>
     </div>
 </div>
+
+<x-cta-band subtitle="Let's discuss how our integrated mining services can support your operation." buttonHref="{{ url('contact') }}" class="reveal fade-bottom">
+    Have a mining project in mind?
+</x-cta-band>
 <style>
     .reveal {
         opacity: 0;

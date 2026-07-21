@@ -2,15 +2,9 @@
 @section('title', 'Project Gallery - PT PP Presisi Tbk')
 
 @section('content')
-<div class="bg-ppblue-900 pt-32 pb-20 relative overflow-hidden">
-    <div class="absolute inset-0 z-0">
-        <img src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=2000" alt="Projects" class="w-full h-full object-cover mix-blend-overlay opacity-20" width="1920" height="400" loading="lazy">
-    </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-4">Project Gallery</h1>
-        <p class="text-blue-100 text-lg max-w-2xl mx-auto">Showcasing our footprint in building national infrastructure and shaping the landscape of Indonesia.</p>
-    </div>
-</div>
+<x-page-header subtitle="Showcasing our footprint in building national infrastructure and shaping the landscape of Indonesia.">
+    Project Gallery
+</x-page-header>
 
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
     @if(isset($projects) && $projects->count() > 0)

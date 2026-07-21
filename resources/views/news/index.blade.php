@@ -2,12 +2,9 @@
 @section('title', 'News & Events - PT PP Presisi Tbk')
 
 @section('content')
-<div class="bg-gray-100 pt-32 pb-16 relative border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl md:text-5xl font-heading font-bold text-ppblue-900 mb-4">News & Events</h1>
-        <p class="text-gray-600 text-lg max-w-2xl mx-auto">Stay updated with the latest press releases, corporate announcements, and events.</p>
-    </div>
-</div>
+<x-page-header subtitle="Stay updated with the latest press releases, corporate announcements, and events.">
+    News &amp; Events
+</x-page-header>
 
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
     @if(isset($news) && $news->count() > 0)

@@ -89,7 +89,7 @@
                         </div>
                     @endif
                     
-                    <a href="{{ url('investor/stock') }}" class="inline-block mt-4 text-blue-300 hover:text-white transition font-medium text-sm">
+                    <a href="{{ url('investor/stock') }}" class="inline-block mt-4 text-ppblue-300 hover:text-white transition font-medium text-sm">
                         See more detail &rarr;
                     </a>
                 </div>
@@ -125,18 +125,9 @@
                     </a>
                     
                     <div class="grid grid-cols-3 gap-8 pt-10 border-t border-gray-200">
-                        <div class="text-left">
-                            <p class="text-4xl md:text-5xl font-black text-ppblue-600 mb-2">{{ $settings['years_established'] ?? '22' }}</p>
-                            <span class="text-sm text-gray-500 font-semibold uppercase tracking-wider">Years Established</span>
-                        </div>
-                        <div class="text-left">
-                            <p class="text-4xl md:text-5xl font-black text-ppblue-600 mb-2">{{ $settings['business_lines'] ?? '8' }}</p>
-                            <span class="text-sm text-gray-500 font-semibold uppercase tracking-wider">Business Lines</span>
-                        </div>
-                        <div class="text-left">
-                            <p class="text-4xl md:text-5xl font-black text-ppblue-600 mb-2">{{ $settings['projects_done'] ?? '100' }}</p>
-                            <span class="text-sm text-gray-500 font-semibold uppercase tracking-wider">Projects Done</span>
-                        </div>
+                        <x-stat-block :value="$settings['years_established'] ?? '22'" label="Years Established" />
+                        <x-stat-block :value="$settings['business_lines'] ?? '8'" label="Business Lines" />
+                        <x-stat-block :value="$settings['projects_done'] ?? '100'" label="Projects Done" />
                     </div>
                 </div>
             </div>
@@ -206,60 +197,25 @@
         <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-ppblue-500/20 rounded-full blur-[120px]"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal fade-bottom">
-                <div>
-                    <h2 class="text-5xl md:text-6xl font-heading font-black text-white leading-tight tracking-tight">
-                        Business <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-yellow-500">Unit</span>
-                    </h2>
-                </div>
-                <a href="{{ url('business/civil-work') }}" class="px-8 py-4 bg-white/10 backdrop-blur-md text-white font-semibold rounded-full border border-white/20 hover:bg-white hover:text-gray-900 transition duration-300 mt-6 md:mt-0 shadow-xl">
-                    Explore All Units
-                </a>
-            </div>
-            
+            <x-section-header dark ctaText="Explore All Units" :ctaHref="url('business/civil-work')" class="reveal fade-bottom">
+                Business <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-yellow-500">Unit</span>
+            </x-section-header>
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 @forelse($services as $index => $service)
-                <div class="group relative overflow-hidden bg-gray-800 rounded-3xl shadow-2xl h-[30rem] reveal fade-bottom" style="transition-delay: {{ $index * 150 }}ms;">
-                    <img src="{{ $service->image ? Storage::url($service->image) : asset('images/home/4d1d41f894f9b24cc405754c77bbd4c3.jpg') }}" class="w-full h-full object-cover opacity-60 group-hover:opacity-90 group-hover:scale-110 transition duration-700" alt="{{ $service->title }}" width="384" height="480" loading="lazy">
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent"></div>
-                    <div class="absolute inset-0 p-8 flex flex-col justify-end text-center items-center pointer-events-none">
-                        @if($service->icon)
-                            <div class="mb-4 text-white text-5xl group-hover:scale-110 group-hover:-translate-y-2 transition duration-500 drop-shadow-xl">
-                                {!! clean($service->icon) !!}
-                            </div>
-                        @endif
-                        <h3 class="text-3xl font-bold text-white mb-6 tracking-wide drop-shadow-lg">{{ $service->title }}</h3>
-                        <a href="{{ url('business/'.Str::slug($service->title)) }}" class="px-8 py-3 bg-accent text-white font-semibold rounded-full shadow-lg shadow-accent/40 hover:bg-yellow-500 transition opacity-0 group-hover:opacity-100 transform translate-y-8 group-hover:translate-y-0 duration-500 pointer-events-auto">
-                            View Detail
-                        </a>
-                    </div>
-                </div>
+                    <x-service-card
+                        :image="$service->image ? Storage::url($service->image) : asset('images/home/4d1d41f894f9b24cc405754c77bbd4c3.jpg')"
+                        :title="$service->title"
+                        :href="url('business/'.Str::slug($service->title))"
+                        :icon="$service->icon ? clean($service->icon) : null"
+                        class="reveal fade-bottom"
+                        style="transition-delay: {{ $index * 150 }}ms;"
+                    />
                 @empty
-                <!-- Fallback Data -->
-                <div class="group relative overflow-hidden bg-gray-800 rounded-3xl shadow-2xl h-[30rem] reveal fade-bottom">
-                    <img src="{{ asset('images/home/4d1d41f894f9b24cc405754c77bbd4c3.jpg') }}" class="w-full h-full object-cover opacity-60 group-hover:opacity-90 group-hover:scale-110 transition duration-700" alt="CIVIL WORK" width="384" height="480" loading="lazy">
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent"></div>
-                    <div class="absolute inset-0 p-8 flex flex-col justify-end text-center items-center pointer-events-none">
-                        <h3 class="text-3xl font-bold text-white mb-6 tracking-wide drop-shadow-lg">Civil Work</h3>
-                        <a href="{{ url('business/civil-work') }}" class="px-8 py-3 bg-accent text-white font-semibold rounded-full shadow-lg shadow-accent/40 hover:bg-yellow-500 transition opacity-0 group-hover:opacity-100 transform translate-y-8 group-hover:translate-y-0 duration-500 pointer-events-auto">View Detail</a>
-                    </div>
-                </div>
-                <div class="group relative overflow-hidden bg-gray-800 rounded-3xl shadow-2xl h-[30rem] reveal fade-bottom" style="transition-delay: 150ms;">
-                    <img src="{{ asset('images/home/5f3015bb6d7666c1aab0b1780b922241.JPG') }}" class="w-full h-full object-cover opacity-60 group-hover:opacity-90 group-hover:scale-110 transition duration-700" alt="MINING SERVICES" width="384" height="480" loading="lazy">
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent"></div>
-                    <div class="absolute inset-0 p-8 flex flex-col justify-end text-center items-center pointer-events-none">
-                        <h3 class="text-3xl font-bold text-white mb-6 tracking-wide drop-shadow-lg">Mining Services</h3>
-                        <a href="{{ url('business/mining-services') }}" class="px-8 py-3 bg-accent text-white font-semibold rounded-full shadow-lg shadow-accent/40 hover:bg-yellow-500 transition opacity-0 group-hover:opacity-100 transform translate-y-8 group-hover:translate-y-0 duration-500 pointer-events-auto">View Detail</a>
-                    </div>
-                </div>
-                <div class="group relative overflow-hidden bg-gray-800 rounded-3xl shadow-2xl h-[30rem] reveal fade-bottom" style="transition-delay: 300ms;">
-                    <img src="{{ asset('images/home/9cfd27b181587d6d7fc65571007e2a31.jpg') }}" class="w-full h-full object-cover opacity-60 group-hover:opacity-90 group-hover:scale-110 transition duration-700" alt="HEAVY EQUIPMENT" width="384" height="480" loading="lazy">
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent"></div>
-                    <div class="absolute inset-0 p-8 flex flex-col justify-end text-center items-center pointer-events-none">
-                        <h3 class="text-3xl font-bold text-white mb-6 tracking-wide drop-shadow-lg">Heavy Equipment</h3>
-                        <a href="{{ url('business/heavy-equipment') }}" class="px-8 py-3 bg-accent text-white font-semibold rounded-full shadow-lg shadow-accent/40 hover:bg-yellow-500 transition opacity-0 group-hover:opacity-100 transform translate-y-8 group-hover:translate-y-0 duration-500 pointer-events-auto">View Detail</a>
-                    </div>
-                </div>
+                    <!-- Fallback Data -->
+                    <x-service-card image="{{ asset('images/home/4d1d41f894f9b24cc405754c77bbd4c3.jpg') }}" title="Civil Work" :href="url('business/civil-work')" class="reveal fade-bottom" />
+                    <x-service-card image="{{ asset('images/home/5f3015bb6d7666c1aab0b1780b922241.JPG') }}" title="Mining Services" :href="url('business/mining-services')" class="reveal fade-bottom" style="transition-delay: 150ms;" />
+                    <x-service-card image="{{ asset('images/home/9cfd27b181587d6d7fc65571007e2a31.jpg') }}" title="Heavy Equipment" :href="url('business/heavy-equipment')" class="reveal fade-bottom" style="transition-delay: 300ms;" />
                 @endforelse
             </div>
         </div>
@@ -268,17 +224,10 @@
     <!-- BEGIN SECTION 05 / Project Gallery -->
     <section id="project-gallery" class="py-32 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal fade-bottom">
-                <div>
-                    <h2 class="text-5xl md:text-6xl font-heading font-black text-gray-900 leading-tight tracking-tight">
-                        Project <span class="text-accent">Gallery</span>
-                    </h2>
-                </div>
-                <a href="{{ url('projects') }}" class="px-8 py-4 bg-white text-gray-900 font-semibold rounded-full shadow-lg border border-gray-200 hover:bg-ppblue-900 hover:text-white hover:border-ppblue-900 transition duration-300 mt-6 md:mt-0">
-                    See More Gallery
-                </a>
-            </div>
-            
+            <x-section-header ctaText="See More Gallery" :ctaHref="url('projects')" class="reveal fade-bottom">
+                Project <span class="text-accent">Gallery</span>
+            </x-section-header>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 @forelse($projects as $index => $project)
                 <div class="group relative overflow-hidden rounded-3xl shadow-xl h-72 {{ $loop->first ? 'md:col-span-2 md:row-span-2 md:h-[37.5rem]' : '' }} reveal fade-bottom" style="transition-delay: {{ $index * 150 }}ms;">
@@ -299,12 +248,10 @@
     <!-- BEGIN SECTION 06 / News & Event -->
     <section id="news-event" class="py-32 bg-gray-50 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal fade-bottom">
-                <h2 class="text-5xl md:text-6xl font-heading font-black text-gray-900 leading-tight tracking-tight">
-                    News <span class="text-accent">& Event</span>
-                </h2>
-            </div>
-            
+            <x-section-header align="center" class="reveal fade-bottom">
+                News <span class="text-accent">& Event</span>
+            </x-section-header>
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 @forelse($news as $index => $article)
                 <div class="group flex flex-col bg-white rounded-3xl overflow-hidden shadow-xl shadow-gray-200/50 hover:shadow-2xl transition duration-500 relative reveal fade-bottom" style="transition-delay: {{ $index * 150 }}ms;">
@@ -353,58 +300,8 @@
                 <p class="text-gray-400 font-medium text-lg mt-4 max-w-2xl mx-auto tracking-wide">Have a question or want to work together? Leave your details and we will get back to you as soon as possible.</p>
             </div>
             
-            @if(session('success'))
-            <div class="bg-green-500/20 backdrop-blur-md border border-green-500/30 text-green-300 p-6 rounded-2xl mb-12 text-center shadow-xl font-bold text-lg tracking-wide reveal fade-bottom">
-                {{ session('success') }}
-            </div>
-            @endif
-            
-            <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-8 md:p-14 shadow-2xl reveal fade-up relative">
-                
-                <form action="{{ url('contact') }}" method="POST" class="space-y-8 relative z-10">
-                    @csrf
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-300 mb-2 tracking-wide">Subject</label>
-                            <select name="subject" class="w-full px-6 py-4 rounded-2xl border border-white/10 focus:border-accent bg-white/5 focus:bg-white/10 text-white outline-none transition duration-300">
-                                <option class="text-gray-900" value="General">General</option>
-                                <option class="text-gray-900" value="Business">Business</option>
-                                <option class="text-gray-900" value="Investor Relation">Investor Relation</option>
-                                <option class="text-gray-900" value="Corporate Secretary">Corporate Secretary</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-300 mb-2 tracking-wide">Company</label>
-                            <input type="text" name="company" class="w-full px-6 py-4 rounded-2xl border border-white/10 focus:border-accent bg-white/5 focus:bg-white/10 text-white placeholder-gray-500 outline-none transition duration-300" placeholder="Your Company">
-                        </div>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-300 mb-2 tracking-wide">Name *</label>
-                            <input type="text" name="name" required class="w-full px-6 py-4 rounded-2xl border border-white/10 focus:border-accent bg-white/5 focus:bg-white/10 text-white placeholder-gray-500 outline-none transition duration-300" placeholder="Your Name">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-300 mb-2 tracking-wide">Email *</label>
-                            <input type="email" name="email" required class="w-full px-6 py-4 rounded-2xl border border-white/10 focus:border-accent bg-white/5 focus:bg-white/10 text-white placeholder-gray-500 outline-none transition duration-300" placeholder="Your Email">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-300 mb-2 tracking-wide">Phone</label>
-                            <input type="text" name="phone" class="w-full px-6 py-4 rounded-2xl border border-white/10 focus:border-accent bg-white/5 focus:bg-white/10 text-white placeholder-gray-500 outline-none transition duration-300" placeholder="Your Phone">
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-300 mb-2 tracking-wide">Message *</label>
-                        <textarea name="message" required rows="5" class="w-full px-6 py-4 rounded-2xl border border-white/10 focus:border-accent bg-white/5 focus:bg-white/10 text-white placeholder-gray-500 outline-none transition duration-300 resize-none" placeholder="Your Message"></textarea>
-                    </div>
-                    
-                    <div class="text-center pt-6">
-                        <button type="submit" class="px-12 py-4 bg-accent text-white font-bold rounded-full shadow-lg shadow-accent/40 hover:bg-yellow-500 transition duration-300 w-full md:w-auto tracking-wide text-lg">
-                            Send Message
-                        </button>
-                    </div>
-                </form>
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-card-lg p-8 md:p-14 shadow-2xl reveal fade-up relative">
+                <x-contact-form variant="dark" class="relative z-10" />
             </div>
         </div>
     </section>

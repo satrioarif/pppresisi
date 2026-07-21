@@ -2,25 +2,16 @@
 @section('title', 'Contact Us - PT PP Presisi Tbk')
 
 @section('content')
-<!-- Page Header -->
-<div class="pt-40 pb-24 relative overflow-hidden bg-cover bg-center" style="background-image: url('{{ asset('images/home/1a2036e6855da20155f60e4087f2837e.jpg') }}');">
-    <div class="absolute inset-0 bg-ppblue-900/80 z-0"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-4">Get in Touch</h1>
-        <p class="text-gray-200 text-lg max-w-2xl mx-auto">Have questions about our services or investor relations? Reach out to our team.</p>
-    </div>
-</div>
+<x-page-header
+    image="{{ asset('images/home/1a2036e6855da20155f60e4087f2837e.jpg') }}"
+    subtitle="Have questions about our services or investor relations? Reach out to our team."
+>
+    Get in Touch
+</x-page-header>
 
 <div class="bg-slate-100 border-t border-gray-200">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
     
-    @if(session('success'))
-        <div class="mb-10 bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg flex items-center shadow-sm">
-            <svg class="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            <p class="text-green-800 font-medium">{{ session('success') }}</p>
-        </div>
-    @endif
-
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
         
         <!-- Contact Info & Map -->
@@ -75,38 +66,8 @@
             <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
                 <h2 class="text-3xl font-heading font-bold text-gray-900 mb-2">Send us a Message</h2>
                 <p class="text-gray-500 mb-8">Fill out the form below and we'll get back to you as soon as possible.</p>
-                
-                <form action="/contact" method="POST">
-                    @csrf
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2" for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required class="w-full px-5 py-3 rounded-xl border border-gray-300 focus:border-ppblue-500 focus:ring focus:ring-ppblue-200 outline-none transition bg-gray-50">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2" for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required class="w-full px-5 py-3 rounded-xl border border-gray-300 focus:border-ppblue-500 focus:ring focus:ring-ppblue-200 outline-none transition bg-gray-50">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2" for="phone">Phone Number</label>
-                            <input type="text" id="phone" name="phone" class="w-full px-5 py-3 rounded-xl border border-gray-300 focus:border-ppblue-500 focus:ring focus:ring-ppblue-200 outline-none transition bg-gray-50">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2" for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" class="w-full px-5 py-3 rounded-xl border border-gray-300 focus:border-ppblue-500 focus:ring focus:ring-ppblue-200 outline-none transition bg-gray-50">
-                        </div>
-                    </div>
-                    
-                    <div class="mb-8">
-                        <label class="block text-sm font-bold text-gray-700 mb-2" for="message">Your Message *</label>
-                        <textarea id="message" name="message" rows="5" required class="w-full px-5 py-3 rounded-xl border border-gray-300 focus:border-ppblue-500 focus:ring focus:ring-ppblue-200 outline-none transition bg-gray-50 resize-none"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="w-full md:w-auto px-10 py-4 bg-ppblue-500 hover:bg-ppblue-700 text-white font-bold rounded-xl transition shadow-lg shadow-ppblue-500/30 flex justify-center items-center">
-                        Send Message
-                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </button>
-                </form>
+
+                <x-contact-form variant="light" />
             </div>
         </div>
 

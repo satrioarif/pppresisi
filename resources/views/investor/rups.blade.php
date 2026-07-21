@@ -3,34 +3,19 @@
 
 @section('content')
 
-{{-- ===================== HERO ===================== --}}
-<div class="bg-gradient-to-br from-ppblue-900 to-ppblue-800 pt-40 pb-24 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10" style="background: radial-gradient(ellipse at 20% 50%, #60a5fa 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, #3b82f6 0%, transparent 55%);"></div>
-    <div class="absolute inset-0 bg-[url('{{ asset('images/pattern-grid.png') }}')] opacity-5"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal fade-bottom">
-        <div class="inline-flex items-center gap-2 bg-accent/20 border border-accent/30 rounded-full px-4 py-1.5 text-accent text-xs font-bold tracking-widest uppercase mb-6">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            Investor Relations
-        </div>
-        <h1 class="text-5xl md:text-6xl font-heading font-black text-white mb-5 leading-tight">
-            General Meeting of Shareholders
-        </h1>
-        <p class="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-            Access documents, invitations, and results of our GMS / RUPS.
-        </p>
-    </div>
-</div>
+<x-page-header badge="Investor Relations" subtitle="Access documents, invitations, and results of our GMS / RUPS." class="reveal fade-bottom">
+    General Meeting of Shareholders
+</x-page-header>
 
 @include('investor._nav', ['active' => 'rups'])
 
 {{-- ===================== MAIN CONTENT ===================== --}}
-<section class="py-16 min-h-screen" style="background: #ffffff;">
+<section class="py-16 min-h-screen bg-white">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {{-- Section Header --}}
         <div class="flex items-start gap-5 mb-10">
-            <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-md"
-                 style="background: linear-gradient(135deg, #1e3a8a, #2563eb);">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-md bg-gradient-to-br from-ppblue-900 to-ppblue-600">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                           d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -38,7 +23,7 @@
             </div>
             <div>
                 <h2 class="text-2xl md:text-3xl font-heading font-bold text-gray-900">
-                    <span class="font-extrabold" style="color: #111827;">RUPS / GMS Documents</span>
+                    <span class="font-extrabold">RUPS / GMS Documents</span>
                 </h2>
                 <p class="text-gray-500 text-sm mt-1">Annual General Meeting and Extraordinary General Meeting documents.</p>
             </div>

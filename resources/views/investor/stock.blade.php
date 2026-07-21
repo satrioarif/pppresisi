@@ -3,23 +3,9 @@
 
 @section('content')
 
-{{-- ===================== HERO ===================== --}}
-<div class="bg-gradient-to-br from-ppblue-900 to-ppblue-800 pt-40 pb-24 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10" style="background: radial-gradient(ellipse at 20% 50%, #60a5fa 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, #3b82f6 0%, transparent 55%);"></div>
-    <div class="absolute inset-0 bg-[url('{{ asset('images/pattern-grid.png') }}')] opacity-5"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal fade-bottom">
-        <div class="inline-flex items-center gap-2 bg-accent/20 border border-accent/30 rounded-full px-4 py-1.5 text-accent text-xs font-bold tracking-widest uppercase mb-6">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-            Investor Relations
-        </div>
-        <h1 class="text-5xl md:text-6xl font-heading font-black text-white mb-5 leading-tight">
-            Stock Information
-        </h1>
-        <p class="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-            Track PT PP Presisi Tbk's real-time market performance and stock data (IDX: PPRE).
-        </p>
-    </div>
-</div>
+<x-page-header badge="Investor Relations" subtitle="Track PT PP Presisi Tbk's real-time market performance and stock data (IDX: PPRE)." class="reveal fade-bottom">
+    Stock Information
+</x-page-header>
 
 @include('investor._nav', ['active' => 'stock'])
 
