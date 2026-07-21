@@ -19,7 +19,11 @@ class ProjectForm
                 Textarea::make('description')
                     ->columnSpanFull(),
                 FileUpload::make('image')
-                    ->image(),
+                    ->image()
+                    ->imageResizeMode('contain')
+                    ->imageResizeTargetWidth('1920')
+                    ->imageResizeTargetHeight('1080')
+                    ->maxSize(2048),
                 TextInput::make('location'),
                 \Filament\Forms\Components\Select::make('status')
                     ->options([

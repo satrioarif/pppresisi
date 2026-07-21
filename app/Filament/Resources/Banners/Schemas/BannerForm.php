@@ -18,6 +18,10 @@ class BannerForm
                 TextInput::make('subtitle'),
                 FileUpload::make('image')
                     ->image()
+                    ->imageResizeMode('contain')
+                    ->imageResizeTargetWidth('1920')
+                    ->imageResizeTargetHeight('1080')
+                    ->maxSize(2048)
                     ->required(),
                 Toggle::make('is_active')
                     ->required(),

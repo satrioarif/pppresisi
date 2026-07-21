@@ -8,26 +8,35 @@ Route::get('/', function () {
     $projects = \App\Models\Project::orderBy('project_date', 'desc')->take(5)->get();
     $news = \App\Models\News::where('is_published', true)->orderBy('published_date', 'desc')->take(3)->get();
     
-    $stockData = \Illuminate\Support\Facades\Cache::remember('stock_ppre', 3600, function () {
+    $stockData = \Illuminate\Support\Facades\Cache::remember('stock_ppre', 600, function () {
+        $previousClose = null;
+        $imqPrice = null;
+
         try {
-            // Fetch from Yahoo Finance
-            $response = \Illuminate\Support\Facades\Http::get('https://query1.finance.yahoo.com/v8/finance/chart/PPRE.JK');
-            if ($response->successful()) {
-                $data = $response->json();
-                $meta = $data['chart']['result'][0]['meta'] ?? null;
-                if ($meta && isset($meta['regularMarketPrice']) && isset($meta['previousClose'])) {
-                    $change = $meta['regularMarketPrice'] - $meta['previousClose'];
-                    $changePercent = ($change / $meta['previousClose']) * 100;
-                    return [
-                        'price' => $meta['regularMarketPrice'],
-                        'change' => $change,
-                        'changePercent' => $changePercent,
-                    ];
+            $context = stream_context_create(['http' => ['timeout' => 1.5]]);
+            $html = @file_get_contents('https://xml.imq21.com/smart/widget/ppre/intraday.php', false, $context);
+
+            if ($html && preg_match('/const intradayData = JSON\.parse\(\'(\[.*?\])\'\);/', $html, $matches)) {
+                $json = json_decode($matches[1], true);
+                if ($json && is_array($json) && count($json) > 0) {
+                    $imqPrice = end($json)[1];
+                    $previousClose = $json[0][1];
                 }
             }
         } catch (\Exception $e) {
-            // Ignore error and return null to handle gracefully
+            \Log::warning('Gagal fetch harga saham PPRE: '.$e->getMessage());
         }
+
+        if ($imqPrice) {
+            $change = $previousClose ? ($imqPrice - $previousClose) : 0;
+            $changePercent = $previousClose ? (($change / $previousClose) * 100) : 0;
+            return [
+                'price' => $imqPrice,
+                'change' => $change,
+                'changePercent' => $changePercent,
+            ];
+        }
+
         return null;
     });
     

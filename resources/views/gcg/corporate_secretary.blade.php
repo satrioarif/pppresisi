@@ -43,7 +43,7 @@
                         <div class="flex-shrink-0 relative">
                             {{-- Placeholder image since we don't have the real local file --}}
                             <div class="w-32 h-40 bg-gray-200 rounded-xl overflow-hidden shadow-md">
-                                <img src="https://panelppre.pp-presisi.co.id/assets/vendor/responsive_filemanager/source/mei.jpg" alt="Mei Elsa Kembaren" class="w-full h-full object-cover">
+                                <img src="https://panelppre.pp-presisi.co.id/assets/vendor/responsive_filemanager/source/mei.jpg" alt="Mei Elsa Kembaren" class="w-full h-full object-cover" width="128" height="160" loading="lazy">
                             </div>
                         </div>
                         <div>

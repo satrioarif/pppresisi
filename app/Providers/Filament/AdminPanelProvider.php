@@ -28,6 +28,9 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->profile()
+            ->brandName('PP Presisi')
+            ->favicon(asset('images/logo-pp.png'))
             ->brandLogo(asset('images/logo-pp.png'))
             ->brandLogoHeight('4rem')
             ->colors([

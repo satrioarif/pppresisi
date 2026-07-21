@@ -4,17 +4,18 @@
 @section('content')
 
 {{-- ===================== HERO ===================== --}}
-<div class="bg-ppblue-900 pt-32 pb-24 relative overflow-hidden">
+<div class="bg-gradient-to-br from-ppblue-900 to-ppblue-800 pt-40 pb-24 relative overflow-hidden">
     <div class="absolute inset-0 opacity-10" style="background: radial-gradient(ellipse at 20% 50%, #60a5fa 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, #3b82f6 0%, transparent 55%);"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-blue-200 text-sm font-medium mb-6">
+    <div class="absolute inset-0 bg-[url('{{ asset('images/pattern-grid.png') }}')] opacity-5"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal fade-bottom">
+        <div class="inline-flex items-center gap-2 bg-accent/20 border border-accent/30 rounded-full px-4 py-1.5 text-accent text-xs font-bold tracking-widest uppercase mb-6">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
             Investor Relations
         </div>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-5 leading-tight">
-            Stock <span class="text-blue-300">Information</span>
+        <h1 class="text-5xl md:text-6xl font-heading font-black text-white mb-5 leading-tight">
+            Stock Information
         </h1>
-        <p class="text-blue-100 text-lg max-w-2xl mx-auto leading-relaxed">
+        <p class="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
             Track PT PP Presisi Tbk's real-time market performance and stock data (IDX: PPRE).
         </p>
     </div>
@@ -27,33 +28,33 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {{-- Stock Header Badge --}}
-        <div class="flex flex-wrap items-center gap-4 mb-8">
+        <div class="flex flex-wrap items-center gap-4 mb-8 reveal fade-up">
             <div class="flex items-center gap-3">
-                <span class="text-2xl font-extrabold text-ppblue-900">PPRE</span>
-                <span class="text-xs font-semibold bg-ppblue-100 text-ppblue-700 px-2.5 py-1 rounded-full">IDX</span>
+                <span class="text-3xl font-black text-gray-900">PPRE</span>
+                <span class="text-xs font-bold bg-accent/20 text-accent-dark border border-accent/30 px-3 py-1.5 rounded-full uppercase tracking-widest">IDX</span>
             </div>
-            <span class="text-gray-400 text-sm hidden sm:block">|</span>
-            <span class="text-gray-600 text-sm">PT PP Presisi Tbk</span>
+            <span class="text-gray-300 text-sm hidden sm:block">|</span>
+            <span class="text-gray-500 font-bold tracking-wide">PT PP Presisi Tbk</span>
         </div>
 
         {{-- Tab Container --}}
-        <div class="bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden" style="border-top: 4px solid #2563eb;">
+        <div class="bg-white rounded-[2.5rem] shadow-2xl shadow-gray-200/50 border border-gray-100 overflow-hidden reveal fade-up">
 
             {{-- Tab Buttons --}}
-            <div class="flex border-b border-gray-200 bg-gray-50">
+            <div class="flex border-b border-gray-100 bg-gray-50/50 px-6 pt-6 gap-2">
                 <button id="tab-btn-intraday"
                         onclick="switchTab('intraday')"
-                        class="stock-tab-btn px-6 py-4 text-sm font-semibold transition-colors duration-150 border-b-2 border-ppblue-600 text-ppblue-700 bg-white">
+                        class="stock-tab-btn px-6 py-3 text-sm font-bold transition-all duration-300 rounded-t-xl bg-ppblue-900 text-white shadow-md">
                     📈 Intraday
                 </button>
                 <button id="tab-btn-historical"
                         onclick="switchTab('historical')"
-                        class="stock-tab-btn px-6 py-4 text-sm font-semibold transition-colors duration-150 border-b-2 border-transparent text-gray-500 hover:text-ppblue-600">
+                        class="stock-tab-btn px-6 py-3 text-sm font-bold transition-all duration-300 rounded-t-xl text-gray-500 hover:text-ppblue-900 hover:bg-ppblue-50">
                     📊 Historical
                 </button>
                 <button id="tab-btn-calculator"
                         onclick="switchTab('calculator')"
-                        class="stock-tab-btn px-6 py-4 text-sm font-semibold transition-colors duration-150 border-b-2 border-transparent text-gray-500 hover:text-ppblue-600">
+                        class="stock-tab-btn px-6 py-3 text-sm font-bold transition-all duration-300 rounded-t-xl text-gray-500 hover:text-ppblue-900 hover:bg-ppblue-50">
                     🧮 Calculator
                 </button>
             </div>
@@ -99,45 +100,81 @@
         </p>
 
         {{-- Info Cards --}}
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
-            <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm" style="border-top: 3px solid #2563eb;">
-                <p class="text-xs text-gray-500 mb-1 font-medium uppercase tracking-wide">Ticker</p>
-                <p class="text-xl font-extrabold text-ppblue-800">PPRE</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 reveal fade-up">
+            <div class="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-1 transition-transform group">
+                <div class="w-10 h-1 bg-ppblue-900 mb-4 rounded-full group-hover:bg-accent transition-colors"></div>
+                <p class="text-xs text-gray-400 mb-1 font-bold uppercase tracking-widest">Ticker</p>
+                <p class="text-2xl font-black text-gray-900">PPRE</p>
             </div>
-            <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm" style="border-top: 3px solid #2563eb;">
-                <p class="text-xs text-gray-500 mb-1 font-medium uppercase tracking-wide">Exchange</p>
-                <p class="text-xl font-extrabold text-ppblue-800">IDX</p>
+            <div class="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-1 transition-transform group">
+                <div class="w-10 h-1 bg-ppblue-900 mb-4 rounded-full group-hover:bg-accent transition-colors"></div>
+                <p class="text-xs text-gray-400 mb-1 font-bold uppercase tracking-widest">Exchange</p>
+                <p class="text-2xl font-black text-gray-900">IDX</p>
             </div>
-            <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm" style="border-top: 3px solid #2563eb;">
-                <p class="text-xs text-gray-500 mb-1 font-medium uppercase tracking-wide">IPO Date</p>
-                <p class="text-lg font-extrabold text-ppblue-800">24 Nov 2017</p>
+            <div class="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-1 transition-transform group">
+                <div class="w-10 h-1 bg-ppblue-900 mb-4 rounded-full group-hover:bg-accent transition-colors"></div>
+                <p class="text-xs text-gray-400 mb-1 font-bold uppercase tracking-widest">IPO Date</p>
+                <p class="text-xl font-black text-gray-900">24 Nov 2017</p>
             </div>
-            <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm" style="border-top: 3px solid #2563eb;">
-                <p class="text-xs text-gray-500 mb-1 font-medium uppercase tracking-wide">Shares Listed</p>
-                <p class="text-base font-extrabold text-ppblue-800">10,224,374,200</p>
+            <div class="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-1 transition-transform group">
+                <div class="w-10 h-1 bg-ppblue-900 mb-4 rounded-full group-hover:bg-accent transition-colors"></div>
+                <p class="text-xs text-gray-400 mb-1 font-bold uppercase tracking-widest">Shares Listed</p>
+                <p class="text-xl font-black text-gray-900">10,224,374,200</p>
             </div>
         </div>
 
     </div>
 </div>
 
+<style>
+    .reveal {
+        opacity: 0;
+        transition: all 1s ease-out;
+    }
+    .reveal.active {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    .fade-bottom { transform: translateY(40px); }
+    .fade-left { transform: translateX(-40px); }
+    .fade-right { transform: translateX(40px); }
+    .fade-up { transform: translateY(60px); }
+</style>
 <script>
 function switchTab(tab) {
     // Hide all panels
     document.querySelectorAll('.stock-tab-panel').forEach(el => el.classList.add('hidden'));
     // Reset all buttons
     document.querySelectorAll('.stock-tab-btn').forEach(btn => {
-        btn.classList.remove('border-ppblue-600', 'text-ppblue-700', 'bg-white');
-        btn.classList.add('border-transparent', 'text-gray-500');
+        btn.classList.remove('bg-ppblue-900', 'text-white', 'shadow-md');
+        btn.classList.add('text-gray-500', 'hover:text-ppblue-900', 'hover:bg-ppblue-50');
     });
 
     // Show target panel
     document.getElementById('tab-' + tab).classList.remove('hidden');
     // Activate button
     const activeBtn = document.getElementById('tab-btn-' + tab);
-    activeBtn.classList.remove('border-transparent', 'text-gray-500');
-    activeBtn.classList.add('border-ppblue-600', 'text-ppblue-700', 'bg-white');
+    activeBtn.classList.remove('text-gray-500', 'hover:text-ppblue-900', 'hover:bg-ppblue-50');
+    activeBtn.classList.add('bg-ppblue-900', 'text-white', 'shadow-md');
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const reveals = document.querySelectorAll('.reveal');
+    const revealOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+    const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, revealOptions);
+    reveals.forEach(reveal => {
+        revealOnScroll.observe(reveal);
+    });
+});
 </script>
 
 @endsection

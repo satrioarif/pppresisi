@@ -24,6 +24,10 @@ class NewsForm
                     ->columnSpanFull(),
                 FileUpload::make('image')
                     ->image()
+                    ->imageResizeMode('contain')
+                    ->imageResizeTargetWidth('1920')
+                    ->imageResizeTargetHeight('1080')
+                    ->maxSize(2048)
                     ->label('Thumbnail Image'),
                 FileUpload::make('attachment')
                     ->acceptedFileTypes(['application/pdf'])

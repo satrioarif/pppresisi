@@ -4,7 +4,7 @@
 @section('content')
 <div class="bg-ppblue-900 pt-32 pb-20 relative overflow-hidden">
     <div class="absolute inset-0 z-0">
-        <img src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=2000" alt="Projects" class="w-full h-full object-cover mix-blend-overlay opacity-20">
+        <img src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=2000" alt="Projects" class="w-full h-full object-cover mix-blend-overlay opacity-20" width="1920" height="400" loading="lazy">
     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-4">Project Gallery</h1>
@@ -20,7 +20,7 @@
                 <div class="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition duration-500 border border-gray-100">
                     <div class="h-64 overflow-hidden relative">
                         @if($project->image)
-                            <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                            <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" width="384" height="256" loading="lazy">
                         @else
                             <div class="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400">
                                 <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>

@@ -24,7 +24,11 @@ class BoardForm
                     ])
                     ->required(),
                 FileUpload::make('image')
-                    ->image(),
+                    ->image()
+                    ->imageResizeMode('contain')
+                    ->imageResizeTargetWidth('1920')
+                    ->imageResizeTargetHeight('1080')
+                    ->maxSize(2048),
                 Textarea::make('description')
                     ->columnSpanFull(),
                 TextInput::make('order')

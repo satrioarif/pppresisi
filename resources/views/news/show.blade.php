@@ -5,7 +5,7 @@
 <!-- Header image if exists -->
 @if($article->image)
 <div class="w-full h-80 md:h-[500px] mt-20 relative">
-    <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}" class="w-full h-full object-cover">
+    <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}" class="w-full h-full object-cover" width="1920" height="500" loading="lazy">
     <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80"></div>
 </div>
 @endif

@@ -15,8 +15,8 @@
         @php
             $isActive = Request::is(ltrim(parse_url($tab['url'], PHP_URL_PATH), '/'));
         @endphp
-        <a href="{{ $tab['url'] }}" 
-           class="px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 {{ $isActive ? 'bg-ppblue-700 text-white shadow-md shadow-ppblue-700/20' : 'text-gray-500 hover:text-ppblue-700 hover:bg-blue-50' }}">
+        <a href="{{ $tab['url'] }}"
+           class="px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 {{ $isActive ? 'bg-ppblue-900 text-white shadow-md shadow-ppblue-900/20' : 'text-gray-500 hover:text-ppblue-900 hover:bg-ppblue-50' }}">
             {{ $tab['label'] }}
         </a>
     @endforeach

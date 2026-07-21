@@ -25,31 +25,26 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {{-- Breadcrumb --}}
-        <div class="flex items-center gap-2 text-xs text-gray-400 pt-3 pb-1.5">
-            <a href="{{ url('/') }}" class="hover:text-ppblue-600 transition-colors">Home</a>
-            <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
-            </svg>
-            <span>Investor Relations</span>
-            <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
-            </svg>
-            <span class="font-semibold text-gray-700">{{ $activeLabel }}</span>
+        <div class="flex items-center gap-2 text-sm text-gray-500 pt-6 pb-4 reveal fade-bottom">
+            <a href="{{ url('/') }}" class="hover:text-accent font-semibold transition-colors">Home</a>
+            <span class="text-gray-300 font-bold">/</span>
+            <span class="hover:text-accent font-semibold cursor-default transition-colors">Investor Relations</span>
+            <span class="text-gray-300 font-bold">/</span>
+            <span class="font-bold text-gray-900">{{ $activeLabel }}</span>
         </div>
 
         {{-- Tab Navigation --}}
-        <nav class="flex items-end gap-0 overflow-x-auto investor-subnav -mb-px" aria-label="Investor Relations navigation">
-            @foreach($tabs as $tab)
-                @php $isActive = ($active === $tab['key']); @endphp
-                <a href="{{ $tab['url'] }}"
-                   class="relative flex-shrink-0 px-4 py-3 text-sm font-medium transition-colors duration-150 whitespace-nowrap
-                          {{ $isActive
-                              ? 'text-ppblue-700 border-b-2 border-ppblue-600'
-                              : 'text-gray-500 border-b-2 border-transparent hover:text-ppblue-600 hover:border-ppblue-300' }}">
-                    {{ $tab['label'] }}
-                </a>
-            @endforeach
-        </nav>
+        <div class="mb-10 overflow-x-auto pb-4 reveal fade-bottom" style="transition-delay: 100ms;">
+            <nav class="flex space-x-2 min-w-max bg-gray-50 p-2 rounded-full border border-gray-100 shadow-sm w-max investor-subnav" aria-label="Investor Relations navigation">
+                @foreach($tabs as $tab)
+                    @php $isActive = ($active === $tab['key']); @endphp
+                    <a href="{{ $tab['url'] }}"
+                       class="px-6 py-3 rounded-full transition-all duration-300 whitespace-nowrap {{ $isActive ? 'bg-ppblue-900 text-white font-bold shadow-md shadow-ppblue-900/20' : 'text-gray-500 hover:text-ppblue-900 hover:bg-ppblue-50 font-medium' }}">
+                        {{ $tab['label'] }}
+                    </a>
+                @endforeach
+            </nav>
+        </div>
     </div>
 </div>
 

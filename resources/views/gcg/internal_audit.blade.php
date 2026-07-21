@@ -60,7 +60,7 @@
                 <div class="w-full md:w-64 flex-shrink-0 flex flex-col items-center">
                     <div class="w-40 h-56 bg-gray-200 rounded-xl overflow-hidden shadow-md mb-4 border border-gray-100">
                         {{-- Image from reference --}}
-                        <img src="https://panelppre.pp-presisi.co.id/assets/vendor/responsive_filemanager/source/wismo_v2.jpeg" alt="Wismo Suwego" class="w-full h-full object-cover">
+                        <img src="https://panelppre.pp-presisi.co.id/assets/vendor/responsive_filemanager/source/wismo_v2.jpeg" alt="Wismo Suwego" class="w-full h-full object-cover" width="160" height="224" loading="lazy">
                     </div>
                     <div class="text-center">
                         <h5 class="text-lg font-bold text-gray-900 leading-tight">Wismo Suwego</h5>
